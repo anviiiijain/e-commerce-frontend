@@ -1,6 +1,20 @@
-# ECommerceFrontend
+## Getting Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+1. Open the folder where you want to have your project and open cmd
+2. Use the command `git clone https://github.com/anviiiijain/e-commerce-frontend.git`
+
+
+## Git Commands
+
+use `git add .` to add all modified files or `git add <filename>` to add a speciific file to staging
+
+use `git commit -m <message>` to commit all the files from staging
+
+use `git push origin <branch name>` to sync Github with your local changes
+
+use `git pull origin <branch name>` to sync up your local repository with Github (always pull before pushing)
+
+to create a branch use `git branch <branch name>` or `git checkout -b <branch name>`
 
 ## Development server
 

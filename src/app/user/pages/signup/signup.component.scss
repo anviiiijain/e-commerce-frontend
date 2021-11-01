@@ -1,0 +1,35 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 150px 0px;
+    
+  }
+
+  mat-form-field {
+    width: 100%;
+    min-width: 420px;
+  }
+
+  mat-card-title,
+  mat-card-content,
+  mat-card-footer {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  button {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: #ffff;
+    width: 100%;
+   
+  }
+
+  a{
+    color: #548CA8;
+  }
+

@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './user/pages/signup/signup.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './user/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    
+    FooterComponent
     
   ],
   imports: [

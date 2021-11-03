@@ -1,4 +1,5 @@
 import { NavbarComponent } from './user/navbar/navbar.component';
+import { WishlistComponent } from './user/pages/wishlist/wishlist.component';
 import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     SignupComponent,
-    NavbarComponent
+    NavbarComponent,
+    WishlistComponent
     
     
   ],

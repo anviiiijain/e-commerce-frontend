@@ -1,0 +1,51 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 150px 0px;
+    
+  }
+
+  mat-card{
+      padding: 2rem 2.5rem;
+      border-radius: 0.75rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+    min-width: 420px;
+  }
+
+  mat-card-title,
+  mat-card-content,
+  mat-card-footer {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  button {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: #ffff;
+    width: 100%;
+   
+  }
+
+  a{
+    color: #548CA8;
+    text-decoration: none;
+  }
+
+  .login-form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forgot-password{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+  }

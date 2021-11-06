@@ -12,7 +12,6 @@
                 {{product.productName}}
             </mat-card-title>
             <mat-card-content class="item">
-                <p class="mat-title description">{{product.description}}</p>
                 <p class="mat-title">
                     <span style="color: yellow">
                         <mat-icon>star</mat-icon>
@@ -25,14 +24,15 @@
                         style="color: #BD2F2F;">
                         ₹{{product.discountedPrice}}</span>
                 </p>
+                <p class="mat-title description">{{product.description}}</p>
 
             </mat-card-content>
 
             <mat-card-actions align="end" class="item item-button">
-                <button mat-button class="item-button-removewishlist ">
+                <!-- <button mat-button class="item-button-removewishlist ">
                     <mat-icon>heart_broken</mat-icon> Remove from Wishlist
-                </button>
-                <button mat-button class="item-button-addtocart ">
+                </button> -->
+                <button mat-button class="item-button-removewishlist">
                     <mat-icon>shopping_cart</mat-icon> Add to Cart
                 </button>
             </mat-card-actions>

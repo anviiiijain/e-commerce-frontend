@@ -5,14 +5,14 @@
 
 .card-space {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  align-items: center;
   margin: 20px 100px;
   border-radius: 10px;
 }
 
 .card-space embed {
-  float: left;
-  width: auto;
+  width: 20%;
   min-height: 200px;
   max-height: 250px;
 }
@@ -22,6 +22,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin: 20px 50px;
+  width: 80%;
 }
 .item-title {
   font-weight: bolder;

@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path:'product',
     component:ProductComponent
-  }
+  },
+  {
     path:'wishlist',
     component:WishlistComponent
   },

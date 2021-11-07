@@ -20,7 +20,7 @@ import { ProductService } from './product.service';
     SignupComponent,
     LoginComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
     NavbarComponent,
     WishlistComponent,
     ProductDetailsComponent    

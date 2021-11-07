@@ -1,0 +1,66 @@
+.product-page{
+    width: 80%;
+    margin: auto;
+}
+
+.product-details{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 3.5fr;
+    justify-content: space-between;
+
+    div mat-card{
+        border-radius: 0.5rem;
+    }
+
+    mat-card{
+        margin: 0.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 1rem;
+        mat-card-subtitle{
+            font-size: larger;
+        }
+    }
+
+    mat-divider{
+        margin: 1rem 0;
+    }
+
+    .price{
+        color: gray;
+    }
+
+    .actions{
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: white;
+        mat-icon{
+            background-color: #282626;
+            padding: 0.25rem;
+            border-radius: 100%;
+        }
+    }
+}
+
+.striked{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.deal-price{
+    text-decoration: none;
+    color: #BD2F2F;
+}
+
+.primary-button{
+    background-color: #548CA8;
+    color: white;
+    padding: 0 1rem;
+    border-radius: 2rem;
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

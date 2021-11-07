@@ -7,13 +7,14 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './user/pages/signup/signup.component';
 import { LoginComponent } from './user/pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductComponent } from './user/pages/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    
+    ProductComponent
   ],
   imports: [
     BrowserModule,

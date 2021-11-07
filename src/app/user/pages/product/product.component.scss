@@ -22,7 +22,7 @@
     }
 
     mat-divider{
-        margin: 1rem 0;
+        margin: 1rem auto;
     }
 
     .price{
@@ -39,6 +39,49 @@
             padding: 0.25rem;
             border-radius: 100%;
         }
+    }
+}
+
+.faqs{
+    margin: 5rem 0;
+    h2{
+        font-weight: bolder;
+        font-size: x-large;
+        margin: 1rem;
+    }
+    mat-expansion-panel{
+        padding: 0.5rem;
+        mat-panel-title{
+            text-transform: capitalize;
+            font-size: large;
+            font-weight: bold;
+        }
+        p{
+            margin-top: 1rem;
+            font-size: large;
+        }
+    }
+}
+
+.reviews{
+    margin: 5rem 0;
+    h2{
+        font-weight: bolder;
+        font-size: x-large;
+        margin: 1rem;
+    }
+    mat-card{
+        margin: 0.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 0.75rem;
+    }
+    mat-card-title{
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    mat-card-content{
+        font-size: large;
     }
 }
 

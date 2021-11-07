@@ -19,4 +19,33 @@ body {
 }
 /* let me doit 4 */
 
+.secondary-button {
+     display: flex;
+     justify-content: center;
+     background-color: #282626;
+     color: white;
+     width: 100%;
+}
 
+.primary-button{
+     background-color: #548CA8;
+     color: white;
+     padding: 0 1rem;
+     border-radius: 2rem;
+ }
+
+.striked{
+     color: gray;
+     text-decoration: line-through;
+ }
+ 
+ .deal-price{
+     text-decoration: none;
+     color: #BD2F2F;
+ }
+ 
+ .section{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }

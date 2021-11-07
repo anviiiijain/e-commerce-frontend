@@ -10,8 +10,11 @@ import { LoginComponent } from './user/pages/login/login.component';
 import { ProductDetailsComponent } from './user/pages/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
-import { ProductService } from './product.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ProductService } from './_services/product.service';
+import { WishlistService } from './_services/wishlist.service';
+import { AuthService } from './_services';
+import { AuthInterceptor } from "./_utils/AuthInterceptor"
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,11 @@ import { ProductService } from './product.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, WishlistService, AuthService, {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptor, 
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

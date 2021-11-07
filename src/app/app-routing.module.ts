@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './user/pages/login/login.component';
 import { SignupComponent } from './user/pages/signup/signup.component';
-import { WishlistComponent } from "./user/pages/wishlist/wishlist.component"
-import { ProductDetailsComponent } from "./user/pages/product-details/product-details.component"
+import { WishlistComponent } from "./user/pages/wishlist/wishlist.component";
+import { ProductDetailsComponent } from "./user/pages/product-details/product-details.component";
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path:'wishlist',
-    component:WishlistComponent
+    component:WishlistComponent,
   },
   {
     path:'products',

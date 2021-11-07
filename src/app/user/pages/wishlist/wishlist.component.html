@@ -3,7 +3,41 @@
     <mat-icon svgIcon="wishlist-icon"></mat-icon> Your Wishlist
 </h1>
 
-<mat-card class="card-space">
+<div *ngFor="let wishlistItem of wishlist">
+    <mat-card class="card-space">
+        <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
+        <div class="card-item">
+            <mat-card-title class="mat-title item item-title">
+                {{wishlistItem.product.productName}}
+            </mat-card-title>
+            <mat-card-content class="item">
+                <p class="mat-title description">
+                    {{wishlistItem.product.description}} <br><br>
+                    <span style="color: yellow">
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star_half</mat-icon>
+                        <mat-icon>star_border</mat-icon>
+                    </span>
+                </p>
+                <p><span class="todays-deal"> Today's Deal: <s>₹33,999.00</s></span><span style="color: #BD2F2F;">
+                        ₹27,999.00</span> </p>
+            </mat-card-content>
+
+            <mat-card-actions align="end" class="item item-button">
+                <button mat-button class="item-button-removewishlist ">
+                    <mat-icon>heart_broken</mat-icon> Remove from Wishlist
+                </button>
+                <button mat-button class="item-button-addtocart ">
+                    <mat-icon>shopping_cart</mat-icon> Add to Cart
+                </button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>
+
+<!-- <mat-card class="card-space">
 
     <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
     <div class="card-item">
@@ -34,37 +68,4 @@
             </button>
         </mat-card-actions>
     </div>
-</mat-card>
-
-<mat-card class="card-space">
-
-    <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
-    <div class="card-item">
-        <mat-card-title class="mat-title item item-title">
-            Product Description
-        </mat-card-title>
-        <mat-card-content class="item">
-            <p class="mat-title description">
-                {{description}} <br><br>
-                <span style="color: yellow">
-                    <mat-icon>star</mat-icon>
-                    <mat-icon>star</mat-icon>
-                    <mat-icon>star</mat-icon>
-                    <mat-icon>star_half</mat-icon>
-                    <mat-icon>star_border</mat-icon>
-                </span>
-            </p>
-            <p><span class="todays-deal"> Today's Deal: <s>₹33,999.00</s></span><span style="color: #BD2F2F;">
-                    ₹27,999.00</span> </p>
-        </mat-card-content>
-
-        <mat-card-actions align="end" class="item item-button">
-            <button mat-button class="item-button-removewishlist ">
-                <mat-icon>heart_broken</mat-icon> Remove from Wishlist
-            </button>
-            <button mat-button class="item-button-addtocart ">
-                <mat-icon>shopping_cart</mat-icon> Add to Cart
-            </button>
-        </mat-card-actions>
-    </div>
-</mat-card>
+</mat-card> -->

@@ -1,0 +1,64 @@
+.wishlist-title {
+  margin: 50px 100px;
+  font-weight: bolder;
+}
+
+.card-space {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 100px;
+  border-radius: 10px;
+}
+
+.card-space embed {
+  width: 20%;
+  min-height: 200px;
+  max-height: 250px;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 20px 50px;
+  width: 80%;
+}
+.item-title {
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+
+.description {
+  text-align: justify;
+  text-justify: inter-word;
+  font-weight: normal;
+}
+
+.item p {
+  border-bottom: 1px solid #9b9b9b;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.todays-deal {
+  color: #9b9b9b;
+}
+
+.item-button-removewishlist {
+  background-color: black;
+  color: white;
+  border-radius: 27px;
+}
+
+.item-button-removewishlist:hover {
+  background-color: black;
+  color: red;
+  border-radius: 27px;
+}
+
+.item-button-addtocart {
+  background-color: #548ca8;
+  color: white;
+  border-radius: 27px;
+}

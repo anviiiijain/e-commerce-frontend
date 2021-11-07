@@ -1,0 +1,62 @@
+.logo{
+    margin-top: 8px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.example-form-field {
+    width: 200px;
+  }
+
+  .example-full-width {
+   flex-basis: 50px;
+  }
+
+  form.searchbar input[type=text]{
+     
+        margin-left: 50px;
+        margin-right: 2px;
+        padding-left: 5px;
+        height: 30px;
+        width: 700px;
+        border-radius: 10px;
+        border-color: black;
+  }
+
+  .search-icon{
+    color: #1976D2 ;
+    right: 42px;
+    z-index: +1;
+  }
+
+  // .cart-button{
+  //   padding-left: 5px;
+  //   padding-right: 55px; 
+  //   background-color:#548CA8;  
+  //   border-radius:10px;
+  // }
+  
+
+  .right-button{
+    
+    background-color: black;
+    color: white;
+    margin-right:53px ;
+    margin-left: 12px;
+    
+
+  }
+
+  .right-button:hover{
+    color: rgb(213, 209, 205);
+  }
+
+  a{    
+    
+      margin-left: 45px;
+      color: black;
+      font-weight: bold;
+  }
+  

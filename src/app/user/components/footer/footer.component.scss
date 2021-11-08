@@ -8,6 +8,10 @@ mat-divider{
     width: screen;
     color: white;
     background-color: #282626;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     mat-card-content{
         display: flex;
         justify-content: space-around;
@@ -27,8 +31,5 @@ mat-divider{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5rem;
-    span{
-        margin-top: 1rem;
-    }
+    margin: 3rem;
 }

@@ -15,6 +15,7 @@ import { ProductService } from './_services/product.service';
 import { WishlistService } from './_services/wishlist.service';
 import { AuthService } from './_services';
 import { AuthInterceptor } from "./_utils/AuthInterceptor"
+import { CartComponent } from './user/pages/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { AuthInterceptor } from "./_utils/AuthInterceptor"
     LoginComponent,
     NavbarComponent,
     WishlistComponent,
-    ProductDetailsComponent    
+    ProductDetailsComponent,
+    CartComponent    
   ],
   imports: [
     BrowserModule,

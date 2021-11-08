@@ -7,11 +7,11 @@ import { IResponse } from '../_models/Response';
 @Injectable({
   providedIn: 'root'
 })
-export class WishlistService {
+export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  getWishlist(): Observable<IResponse> {
-    return this.http.get<IResponse>(`${_url}/user/wishlist`)
+  getCart(): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/user/cart`)
   }
 }

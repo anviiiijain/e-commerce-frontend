@@ -18,6 +18,8 @@ import { WishlistService } from './_services/wishlist.service';
 import { AuthService } from './_services';
 import { AuthInterceptor } from "./_utils/AuthInterceptor"
 import { CartComponent } from './user/pages/cart/cart.component';
+import {HomepageComponent} from "./user/pages/homepage/homepage.component"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { CartComponent } from './user/pages/cart/cart.component';
     NavbarComponent,
     WishlistComponent,
     ProductDetailsComponent,
-    CartComponent    
+    CartComponent,    
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { CartComponent } from './user/pages/cart/cart.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [ProductService, WishlistService, AuthService, {
     provide: HTTP_INTERCEPTORS, 

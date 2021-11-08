@@ -1,0 +1,111 @@
+
+
+* { box-sizing: border-box; }
+
+body { 
+  font-family: sans-serif; 
+}
+
+.carousel {
+  margin-bottom: 40px;
+  
+  
+}
+
+.carousel-cell {
+  width: 100%; /* full width */
+  height: 300px; /* height of carousel */
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+  text-align: center;
+}
+.carousel-cell {
+    border-radius: 20%;
+
+}
+
+.bigSliderImage {
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* vertically center */
+}
+
+.bigSliderText {
+  font-size: 50px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+// category-card
+
+.catCarousel {
+    background-color: white;
+  height: 500px;
+  margin: 10px 80px;
+  border-radius: 2%;
+  border:2px solid black;
+}
+
+.cat-card {
+  width: 250px;
+  max-height: fit-content;
+  margin: 30px;
+  border: 1px solid gray;
+  transition: transform .2s;
+  
+}
+
+.cat-card:hover {
+  border: 2px solid black;
+  box-shadow: 0 0 15px 5px rgba(31, 73, 125, 0.8);
+  transform: scale(1.05);
+}
+
+.catSlideImage {
+  height: 100%;
+}
+
+
+.catSlideImage img {
+  display: block;
+  height: 200px;
+  border-radius: 3%;
+}
+
+.cardTitleText{
+  color: red;
+  font-size: 20px;
+  text-align: left;
+}
+
+@media screen and ( min-width: 768px ) {
+  .catSlideImage img {
+    height: 200px;
+  }
+}
+
+.mat-icon {
+    margin: 5px;
+}
+
+.price{
+    color: gray;
+}
+
+
+
+
+
+
+

@@ -9,6 +9,7 @@ import { SignupComponent } from './user/pages/signup/signup.component';
 import { LoginComponent } from './user/pages/login/login.component';
 import { ProductDetailsComponent } from './user/pages/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './user/components/footer/footer.component';
 import { ProductComponent } from './user/pages/product/product.component';
 import { StarsComponent } from './user/components/stars/stars.component';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { CartComponent } from './user/pages/cart/cart.component';
   declarations: [
     AppComponent,
     SignupComponent,
+    FooterComponent
     LoginComponent,
     ProductComponent,
     StarsComponent,

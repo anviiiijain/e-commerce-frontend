@@ -14,10 +14,23 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._productService.getProducts().subscribe(data => {
-      console.log(data)
       this.products= data.data
     }, error => {
       console.log(error);
+    })
+  }
+
+  addToCart(productId:string) {
+    this._productService.addProductToCart(productId).subscribe(data => {
+      // logic for animation based on code
+      console.log(data);
+    })
+  }
+
+  addToWishlist(productId:string) {
+    this._productService.addProductToWishlist(productId).subscribe(data => {
+      // logic for animation based on code
+      console.log(data);
     })
   }
 }

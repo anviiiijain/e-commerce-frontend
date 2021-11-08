@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './user/pages/signup/signup.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './user/pages/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    
+    CartComponent,
     
   ],
   imports: [

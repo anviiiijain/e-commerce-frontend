@@ -1,18 +1,18 @@
 <app-navbar></app-navbar>
 <h1 class="mat-display-1 wishlist-title">
-    <mat-icon svgIcon="wishlist-icon"></mat-icon> Products
+    <mat-icon svgIcon="wishlist-icon"></mat-icon> Your Cart
 </h1>
 
-<div *ngFor="let product of products">
+<div *ngFor="let cartItem of cartData">
     <mat-card class="card-space">
         <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
         <div class="card-item">
             <mat-card-title class="mat-title item item-title">
-                <!-- {{products[0].productName}} -->
-                {{product.productName}}
+                {{cartItem.product.productName}}
             </mat-card-title>
             <mat-card-content class="item">
-                <p class="mat-title">
+                <p class="mat-title description">
+                    {{cartItem.product.description}} <br><br>
                     <span style="color: yellow">
                         <mat-icon>star</mat-icon>
                         <mat-icon>star</mat-icon>
@@ -20,19 +20,17 @@
                         <mat-icon>star_half</mat-icon>
                         <mat-icon>star_border</mat-icon>
                     </span>
-                    <span class="todays-deal"> Today's Deal: <s>₹{{product.originalPrice}}</s></span><span
-                        style="color: #BD2F2F;">
-                        ₹{{product.discountedPrice}}</span>
                 </p>
-                <p class="mat-title description">{{product.description}}</p>
-
+                <p><span class="todays-deal"> Today's Deal: <s>₹{{cartItem.product.originalPrice}}</s></span><span
+                        style="color: #BD2F2F;">
+                        ₹{{cartItem.product.discountedPrice}}</span> </p>
             </mat-card-content>
 
             <mat-card-actions align="end" class="item item-button">
-                <!-- <button mat-button class="item-button-removewishlist ">
+                <button mat-button class="item-button-removewishlist ">
                     <mat-icon>heart_broken</mat-icon> Remove from Wishlist
-                </button> -->
-                <button mat-button class="item-button-removewishlist">
+                </button>
+                <button mat-button class="item-button-addtocart ">
                     <mat-icon>shopping_cart</mat-icon> Add to Cart
                 </button>
             </mat-card-actions>

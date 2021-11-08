@@ -12,8 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './user/pages/product/product.component';
 import { StarsComponent } from './user/components/stars/stars.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
-import { ProductService } from './product.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ProductService } from './_services/product.service';
+import { WishlistService } from './_services/wishlist.service';
+import { AuthService } from './_services';
+import { AuthInterceptor } from "./_utils/AuthInterceptor"
+import { CartComponent } from './user/pages/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,8 @@ import { ProductService } from './product.service';
     StarsComponent,
     NavbarComponent,
     WishlistComponent,
-    ProductDetailsComponent    
+    ProductDetailsComponent,
+    CartComponent    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,11 @@ import { ProductService } from './product.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, WishlistService, AuthService, {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptor, 
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

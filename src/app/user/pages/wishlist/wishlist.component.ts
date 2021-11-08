@@ -36,5 +36,12 @@ export class WishlistComponent implements OnInit {
     })
   }
 
+  addToCart(productId:string) {
+    this._productService.addProductToCart(productId).subscribe(data => {
+      // logic for animation based on code
+      console.log(data);
+    })
+  }
+
   }
 

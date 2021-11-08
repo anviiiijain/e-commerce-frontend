@@ -16,8 +16,28 @@ export class ProductService {
     return this.http.get<IResponse>(`${_url}/products`)
   }
 
-  getProductById(productId:string): Observable<IProduct> {
-    return this.http.get<IProduct>(`${_url}/products?productId=${productId}`)
+  getProductById(productId:string): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/products?productId=${productId}`)
+  }
+
+  getReviewsById(productId:string): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/user/reviews/${productId}`)
+  }
+
+  getFAQsById(productId:string): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/user/faqs/${productId}`)
+  }
+
+  addProductToCart(productId:string): Observable<IResponse> {
+    return this.http.post<IResponse>(`${_url}/user/cart`, {
+      productId
+    })
+  }
+
+  addProductToWishlist(productId:string): Observable<IResponse> {
+    return this.http.post<IResponse>(`${_url}/user/wishlist`, {
+      productId
+    })
   }
 
 }

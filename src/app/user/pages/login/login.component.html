@@ -3,21 +3,20 @@
         <mat-card-title><img src="../../../../assets/images/logo.svg" alt=""></mat-card-title><br>
         <mat-card-content>
             <form (ngSubmit)="onSubmit()" class="login-form" action="">
-                <mat-form-field appearance='outline'>
+                <mat-form-field  appearance = 'outline'>
                     <mat-label>Email</mat-label>
                     <input [(ngModel)]="email" name="email" matInput type="email">
-                </mat-form-field>
-                <mat-form-field appearance='outline'>
+                </mat-form-field>   
+                <mat-form-field appearance = 'outline'>
                     <mat-label>Password</mat-label>
-                    <input [(ngModel)]="password" name="password" matInput type="password">
+                     <input [(ngModel)]="password" name="password" matInput type="password">
                 </mat-form-field>
                 <div class="forgot-password">
                     <mat-checkbox>Remember Me</mat-checkbox>
                     <a href=""> Forgot Password?</a>
                 </div>
-                <button type="submit" mat-raised-button style="margin-right:5px;">Login</button>
+                <button type="submit" mat-raised-button class="secondary-button">Login</button>
             </form>
         </mat-card-content>
     </mat-card>
-
 </div>

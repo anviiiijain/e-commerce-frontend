@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { CartComponent } from './pages/cart/cart.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -12,6 +11,7 @@ import { CartComponent } from './pages/cart/cart.component';
   imports: [
     CommonModule,
     UserRoutingModule,
+    MaterialModule,
   ]
 })
 export class UserModule { }

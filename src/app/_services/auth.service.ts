@@ -42,4 +42,23 @@ export class AuthService {
   isLoggedOut() {
     return !this.isLoggedIn();
   }
+
+  signup(email: string, password: string): Observable<IResponse> {
+    console.log(email, password);
+    return this.http
+      .post<IResponse>(`${_url}/auth/register`, {
+        userEmail: email,
+        password,
+        role: "user"
+      })
+      .pipe(
+        tap((res) => {
+          console.log(res);
+          if (res.code === 200) {
+            this.router.navigate(['/login']);
+          }
+        }),
+        shareReplay()
+      );
+  }
 }

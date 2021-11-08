@@ -2,21 +2,21 @@
     <mat-card>
         <mat-card-title><img src="../../../../assets/images/logo.svg" alt=""></mat-card-title><br>
         <mat-card-content>
-            <form class='signup-card'  action="">
+            <form (ngSubmit)="onSubmit()" class='signup-card' action="">
                 <p>
-                    <mat-form-field  appearance = 'outline'>
+                    <mat-form-field appearance='outline'>
                         <mat-label>Email</mat-label>
-                        <input  matInput type="email">
-                    </mat-form-field>
-                </p>    
-                <p>
-                    <mat-form-field appearance = 'outline'>
-                        <mat-label>Password</mat-label>
-                        <input matInput type="password">
+                        <input [(ngModel)]="email" name="email" matInput type="email">
                     </mat-form-field>
                 </p>
                 <p>
-                    <mat-form-field appearance = 'outline'>
+                    <mat-form-field appearance='outline'>
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="password" name="password" matInput type="password">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance='outline'>
                         <mat-label>Confirm Password</mat-label>
                         <input matInput type="password">
                     </mat-form-field>
@@ -29,4 +29,3 @@
         </mat-card-footer>
     </mat-card>
 </div>
-

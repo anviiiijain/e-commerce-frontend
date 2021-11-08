@@ -4,38 +4,43 @@
         <div class="total sm-hide">Your Total : <span>₹ {{total}}</span></div>
         <button mat-raised-button class="secondary-button sm-hide">Checkout</button>
     </div>
-    <mat-card class="cart-card">
-        <img mat-card-xl-image class="product-image"  src="../../../../assets/images/background2.png" alt="product">
-        <div class="product-info">
-            <mat-card-title>Product Name</mat-card-title>
-            <mat-card-subtitle>
-                <h3>Mi 11X 5G Cosmic Black 6GB RAM 128GB ROM | SD 870 | DisplayMate A+ rated E4 AMOLED</h3>
-                <div>stars</div>
-            </mat-card-subtitle>
-            <mat-divider [inset]="true"></mat-divider>
-            <div class="section">
-                <div>Today's Deal :<span class="striked">₹ striked price</span><span class="deal-price">₹ deal price</span></div>
-                <mat-card class="quantity-controller">
-                    <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
-                    <mat-divider [vertical]="true"></mat-divider>
-                    <span>{{quant}}</span>
-                    <mat-divider [vertical]="true"></mat-divider>
-                    <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
-                </mat-card>
+    <div *ngFor="let cartItem of cartData">
+        <mat-card class="cart-card">
+            <img mat-card-xl-image class="product-image"  src="../../../../assets/images/background2.png" alt="product">
+            <div class="product-info">
+                <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
+                <mat-card-subtitle>
+                    <h3>{{cartItem.product.description}}</h3>
+                    <div>stars</div>
+                </mat-card-subtitle>
+                <mat-divider [inset]="true"></mat-divider>
+                <div class="section">
+                    <div>Today's Deal :
+                        <span class="striked">₹ {{cartItem.product.originalPrice}}</span>
+                        <span class="deal-price">₹ {{cartItem.product.discountedPrice}}</span>
+                    </div>
+                    <mat-card class="quantity-controller">
+                        <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <span>{{quant}}</span>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
+                    </mat-card>
+                </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <mat-card-footer class="section">
+                    <button mat-raised-button class="secondary-button">
+                        <mat-icon>clear</mat-icon>
+                        Remove from Cart
+                    </button>
+                    <button mat-raised-button class="primary-button">
+                        <mat-icon>favorite_border</mat-icon>
+                        Add to Wishlist
+                    </button>
+                </mat-card-footer>
             </div>
-            <mat-divider [inset]="true"></mat-divider>
-            <mat-card-footer class="section">
-                <button mat-raised-button class="secondary-button">
-                    <mat-icon>clear</mat-icon>
-                    Remove from Cart
-                </button>
-                <button mat-raised-button class="primary-button">
-                    <mat-icon>favorite_border</mat-icon>
-                    Add to Wishlist
-                </button>
-            </mat-card-footer>
-        </div>
-    </mat-card>
+        </mat-card>
+    </div>
     <div class="cart-header">
         <div class="total">Your Total : <span class="amount">₹ {{total}}</span></div>
         <button mat-raised-button class="secondary-button">Checkout</button>

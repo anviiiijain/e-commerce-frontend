@@ -8,8 +8,6 @@ import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
-    ProductDetailsComponent,
-    CartComponent
   ],
   imports: [
     CommonModule,

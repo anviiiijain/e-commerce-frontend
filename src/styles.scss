@@ -23,7 +23,7 @@ mat-icon{
      cursor: pointer;
 }
 
-.secondary-button {
+.secondary-button-largest {
      display: flex;
      justify-content: center;
      background-color: #282626;
@@ -31,21 +31,33 @@ mat-icon{
      width: 100%;
 }
 
-.primary-button{
-     background-color: #548CA8;
+.secondary-button{
+     font-size: larger;
+     background-color: #282626;
      color: white;
-     padding: 0 1rem;
      border-radius: 2rem;
+     padding: 0 1.5rem;
+     margin: 0.5rem 0;
  }
 
-.striked{
-     color: gray;
-     text-decoration: line-through;
+ .primary-button{
+     font-size: larger;
+     background-color: #548CA8;
+     color: white;
+     border-radius: 2rem;
+     padding: 0 1.5rem;
+     margin: 0.5rem 0;
  }
  
  .deal-price{
      text-decoration: none;
      color: #BD2F2F;
+ }
+ 
+ .striked{
+     text-decoration: line-through;
+     color: gray;
+     margin: 0 0.25rem;
  }
  
  .section{

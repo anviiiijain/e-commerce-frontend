@@ -33,7 +33,7 @@ import {HomepageComponent} from "./user/pages/homepage/homepage.component"
     WishlistComponent,
     ProductDetailsComponent,
     CartComponent,    
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

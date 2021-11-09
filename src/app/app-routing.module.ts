@@ -6,6 +6,7 @@ import { SignupComponent } from './user/pages/signup/signup.component';
 import { WishlistComponent } from "./user/pages/wishlist/wishlist.component";
 import { ProductDetailsComponent } from "./user/pages/product-details/product-details.component";
 import { CartComponent } from "./user/pages/cart/cart.component";
+import {HomepageComponent} from "./user/pages/homepage/homepage.component"
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'cart',
     component: CartComponent
+  },
+  {
+    path:'homepage',
+    component: HomepageComponent
   },
 ];
 

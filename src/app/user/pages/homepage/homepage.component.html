@@ -1,0 +1,70 @@
+<div class="home">
+
+  <div class="carousel" data-flickity='{ "autoPlay": 2000,"prevNextButtons": false,"pageDots": false}'>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slide1.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slider2.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slider3.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slide1.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slider2.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+    <div class="carousel-cell">
+      <div class="bigSliderImage">
+        <img src="\assets\images\slider3.PNG" alt=" img not found">
+      </div>
+      <div class="bigSliderText"></div>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="category-heading">
+      Category Name <mat-icon>keyboard_arrow_right</mat-icon>
+    </h2>
+    <div class="catCarousel" data-flickity='{"draggable": false,"contain": true,"initialIndex": 1,"pageDots": false}'>
+      <mat-card class="cat-card">
+        <mat-card-header>
+          <mat-card-title class="catCardTitleText">Product Name</mat-card-title>
+        </mat-card-header>
+        <div class="catSlideImage" data-flickity='{ "imagesLoaded": true, "percentPosition": false ,"prevNextButtons": false}'>
+          <img src="\assets\images\dji1.jpg" alt="DJI" />
+          <img src="\assets\images\dji2.jpg" alt="DJI" />
+          <img src="\assets\images\dji3.jpg" alt="DJI" />
+          <img src="\assets\images\dji4.jpg" alt="DJI" />
+        </div>
+        <div class="stars">
+            <stars [stars]="stars"></stars>
+        </div>
+        <mat-card-actions>
+            <div class="actions">
+                <mat-icon>shopping_cart</mat-icon>
+                <mat-icon>favorite_border</mat-icon>
+            </div>
+            <button mat-raised-button class="primary-button">View More</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

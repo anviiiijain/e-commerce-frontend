@@ -23,14 +23,14 @@ import { CartComponent } from './user/pages/cart/cart.component';
   declarations: [
     AppComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
     LoginComponent,
     ProductComponent,
     StarsComponent,
     NavbarComponent,
     WishlistComponent,
     ProductDetailsComponent,
-    CartComponent    
+    CartComponent,    
   ],
   imports: [
     BrowserModule,

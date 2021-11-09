@@ -10,7 +10,9 @@ import { CartService } from '../../../_services/cart.service';
 export class CartComponent implements OnInit {
 
   cartData:any
-
+  public quant=2;
+  public total="3,56,829";
+  
   constructor(private _cartService: CartService, private _productService: ProductService) {}
 
   ngOnInit(): void {
@@ -27,5 +29,13 @@ export class CartComponent implements OnInit {
       console.log(data);
     })
   }
+  increaseQuant(){
+    this.quant=this.quant+1;
+  }
 
+  decreaseQuant(){
+    if(this.quant>0){
+    this.quant=this.quant-1;
+    }
+  }
 }

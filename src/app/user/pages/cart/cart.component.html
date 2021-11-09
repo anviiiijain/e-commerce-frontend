@@ -11,7 +11,7 @@
                 <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
                 <mat-card-subtitle>
                     <h3>{{cartItem.product.description}}</h3>
-                    <div>stars</div>
+                    <stars [stars]="cartItem.product.stars"></stars>
                 </mat-card-subtitle>
                 <mat-divider [inset]="true"></mat-divider>
                 <div class="section">

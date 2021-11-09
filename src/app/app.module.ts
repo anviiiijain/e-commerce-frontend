@@ -1,4 +1,4 @@
-import { NavbarComponent } from './user/navbar/navbar.component';
+import { NavbarComponent } from './user/components/navbar/navbar.component';
 import { WishlistComponent } from './user/pages/wishlist/wishlist.component';
 import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';

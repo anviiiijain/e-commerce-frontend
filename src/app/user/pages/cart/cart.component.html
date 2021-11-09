@@ -6,7 +6,7 @@
     </div>
     <div *ngFor="let cartItem of cartData">
         <mat-card class="cart-card">
-            <img mat-card-xl-image class="product-image"  src="../../../../assets/images/background2.png" alt="product">
+            <img mat-card-xl-image class="product-image" src="../../../../assets/images/background2.png" alt="product">
             <div class="product-info">
                 <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
                 <mat-card-subtitle>
@@ -33,7 +33,8 @@
                         <mat-icon>clear</mat-icon>
                         Remove from Cart
                     </button>
-                    <button mat-raised-button class="primary-button">
+                    <button mat-raised-button class="primary-button"
+                        (click)="addToWishlist(cartItem.product.productId)">
                         <mat-icon>favorite_border</mat-icon>
                         Add to Wishlist
                     </button>

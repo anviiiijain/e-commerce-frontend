@@ -25,7 +25,7 @@ import {HomepageComponent} from "./user/pages/homepage/homepage.component"
   declarations: [
     AppComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
     LoginComponent,
     ProductComponent,
     StarsComponent,

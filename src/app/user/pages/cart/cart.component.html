@@ -1,39 +1,48 @@
-<app-navbar></app-navbar>
-<h1 class="mat-display-1 wishlist-title">
-    <mat-icon svgIcon="wishlist-icon"></mat-icon> Your Cart
-</h1>
-
-<div *ngFor="let cartItem of cartData">
-    <mat-card class="card-space">
-        <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
-        <div class="card-item">
-            <mat-card-title class="mat-title item item-title">
-                {{cartItem.product.productName}}
-            </mat-card-title>
-            <mat-card-content class="item">
-                <p class="mat-title description">
-                    {{cartItem.product.description}} <br><br>
-                    <span style="color: yellow">
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star_half</mat-icon>
-                        <mat-icon>star_border</mat-icon>
-                    </span>
-                </p>
-                <p><span class="todays-deal"> Today's Deal: <s>₹{{cartItem.product.originalPrice}}</s></span><span
-                        style="color: #BD2F2F;">
-                        ₹{{cartItem.product.discountedPrice}}</span> </p>
-            </mat-card-content>
-
-            <mat-card-actions align="end" class="item item-button">
-                <button mat-button class="item-button-removewishlist ">
-                    <mat-icon>heart_broken</mat-icon> Remove from Wishlist
-                </button>
-                <button mat-button class="item-button-addtocart" (click)="addToCart(cartItem.product.productId)">
-                    <mat-icon>shopping_cart</mat-icon> Add to Cart
-                </button>
-            </mat-card-actions>
-        </div>
-    </mat-card>
+<div class="cart">
+    <div class="cart-header">
+        <span class="cart-heading">Your Cart<mat-icon>shopping_cart_border</mat-icon></span>
+        <div class="total sm-hide">Your Total : <span>₹ {{total}}</span></div>
+        <button mat-raised-button class="secondary-button sm-hide">Checkout</button>
+    </div>
+    <div *ngFor="let cartItem of cartData">
+        <mat-card class="cart-card">
+            <img mat-card-xl-image class="product-image"  src="../../../../assets/images/background2.png" alt="product">
+            <div class="product-info">
+                <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
+                <mat-card-subtitle>
+                    <h3>{{cartItem.product.description}}</h3>
+                    <stars [stars]="cartItem.product.stars"></stars>
+                </mat-card-subtitle>
+                <mat-divider [inset]="true"></mat-divider>
+                <div class="section">
+                    <div>Today's Deal :
+                        <span class="striked">₹ {{cartItem.product.originalPrice}}</span>
+                        <span class="deal-price">₹ {{cartItem.product.discountedPrice}}</span>
+                    </div>
+                    <mat-card class="quantity-controller">
+                        <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <span>{{quant}}</span>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
+                    </mat-card>
+                </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <mat-card-footer class="section">
+                    <button mat-raised-button class="secondary-button">
+                        <mat-icon>clear</mat-icon>
+                        Remove from Cart
+                    </button>
+                    <button mat-raised-button class="primary-button">
+                        <mat-icon>favorite_border</mat-icon>
+                        Add to Wishlist
+                    </button>
+                </mat-card-footer>
+            </div>
+        </mat-card>
+    </div>
+    <div class="cart-header">
+        <div class="total">Your Total : <span class="amount">₹ {{total}}</span></div>
+        <button mat-raised-button class="secondary-button">Checkout</button>
+    </div>
 </div>

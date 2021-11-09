@@ -10,6 +10,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSnackBarModule} from "@angular/material/snack-bar"
 
 const MaterialComponents = [
   MatInputModule,
@@ -23,6 +24,7 @@ const MaterialComponents = [
   MatIconModule,
   MatMenuModule,
   MatGridListModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

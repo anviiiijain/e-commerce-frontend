@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/_services';
 
 @Component({
@@ -13,7 +15,7 @@ export class ProductComponent implements OnInit {
   productReviews:any;
   productFAQs:any;
   stars:number=3.5;
-  constructor(private _productService: ProductService) { }
+  constructor(private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this._productService.getProductById(this.productId).subscribe(data => {
@@ -38,13 +40,22 @@ export class ProductComponent implements OnInit {
   addToCart(productId:string) {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
-      console.log(data);
+      let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/cart']);
+      })
     })
   }
 
   addToWishlist(productId:string) {
     this._productService.addProductToWishlist(productId).subscribe(data => {
       // logic for animation based on code
+      this.snackbar.open("Added to Wishlist", 'Dismiss', {
+        duration: 3000
+      })
       console.log(data);
     })
   }

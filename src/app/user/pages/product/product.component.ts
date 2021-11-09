@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
   addToWishlist(productId:string) {
     this._productService.addProductToWishlist(productId).subscribe(data => {
       // logic for animation based on code
-      this.snackbar.open("Added to Wishlist", 'Dismiss', {
+      this.snackbar.open("Added to Wishlist", 'Go to Wishlist', {
         duration: 3000
       })
       console.log(data);

@@ -1,6 +1,6 @@
 <div class="product-page">
     <div class="product-details">
-        <div>
+        <div class="image-collection">
             <mat-card><embed></mat-card>
             <mat-card><embed></mat-card>
             <mat-card><embed></mat-card>
@@ -19,11 +19,13 @@
             <div class="section">
                 <div class="price">
                     <span>Today's Deal:</span>
-                    <p><span class="striked">₹{{productDetails.originalPrice}}</span><span
-                            class="deal-price">₹{{productDetails.discountedPrice}}</span></p>
+                    <p>
+                        <span class="striked">₹ {{productDetails.originalPrice}}</span>
+                        <span class="deal-price">₹ {{productDetails.discountedPrice}}</span>
+                    </p>
                 </div>
                 <div class="actions">
-                    <mat-icon (click)="addToCart(productDetails.productId)">shopping_cart</mat-icon>
+                    <span (click)="addToCart(productDetails.productId)"><mat-icon >shopping_cart</mat-icon></span>
                     <mat-icon (click)="addToWishlist(productDetails.productId)">favorite_border</mat-icon>
                     <button mat-raised-button class="primary-button">Buy Now</button>
                 </div>
@@ -42,11 +44,11 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{faq.question}}
+                            {{faq.question}} 
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-divider></mat-divider>
-                    <p>{{faq.answer}}</p>
+                    <p>{{faq.answer}} </p>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
@@ -55,9 +57,9 @@
         <h2>Reviews</h2>
         <div *ngFor="let review of productReviews">
             <mat-card>
-                <mat-card-title>{{review.userEmail}}</mat-card-title>
+                <mat-card-title>{{review.userEmail}} </mat-card-title>
                 <stars [stars]="review.stars"></stars>
-                <mat-card-content>{{review.reviewContent}}</mat-card-content>
+                <mat-card-content>{{review.reviewContent}} </mat-card-content>
             </mat-card>
         </div>
     </div>

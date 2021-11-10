@@ -1,8 +1,15 @@
 <div class="product-page">
     <div class="product-details">
-        <div class="image-collection" *ngFor="let detail of productDetails.productImages">
+        <!-- <div class="image-collection" *ngFor="let detail of productDetails.productImages"> -->
+        <div class="image-collection">
             <mat-card>
-                <embed mat-card-xl-image [src]="productDetails.productImages[0].productImageUrl | safe" alt="">
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
             </mat-card>
         </div>
         <mat-card>

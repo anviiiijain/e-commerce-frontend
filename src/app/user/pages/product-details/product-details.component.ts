@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../../_services/product.service"
+import {ProductService} from "../../../_services/product.service";
+import {MatSnackBar} from "@angular/material/snack-bar"
+import { Router } from '@angular/router';
+
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { MatIconRegistry } from '@angular/material/icon';
@@ -18,13 +21,16 @@ export class ProductDetailsComponent implements OnInit {
 
   products:any = []
   
-  constructor(private _productService: ProductService,iconRegistry: MatIconRegistry,sanitizer: DomSanitizer) { 
+  constructor(private _productService: ProductService,iconRegistry: MatIconRegistry,sanitizer: DomSanitizer, private snackbar: MatSnackBar, private router: Router) { 
     iconRegistry.addSvgIconLiteral('wishlist-icon', sanitizer.bypassSecurityTrustHtml(WISHLIST_ICON));
   }
 
   ngOnInit(): void {
     this._productService.getProducts().subscribe(data => {
       this.products= data.data
+      console.log(this.products);
+      console.log(this.products[0].productImages[0].productImageUrl);
+
     }, error => {
       console.log(error);
     })
@@ -33,7 +39,14 @@ export class ProductDetailsComponent implements OnInit {
   addToCart(productId:string) {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
-      console.log(data);
+      console.log("cart dataaaa",data);
+      let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
+        duration: 3000
+      })
+
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/cart']);
+      })
     })
   }
 
@@ -41,6 +54,19 @@ export class ProductDetailsComponent implements OnInit {
     this._productService.addProductToWishlist(productId).subscribe(data => {
       // logic for animation based on code
       console.log(data);
+      let snackBarRef = this.snackbar.open("Added to Wishlist", 'Go to Wishlist', {
+        duration: 3000
+      })
+
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/wishlist']);
+      })
     })
   }
+
+  // openSnackBar(message:string) {
+  //   this.snackbar.open(message, 'Dismiss', {
+  //     duration: 2000
+  //   })
+  // }
 }

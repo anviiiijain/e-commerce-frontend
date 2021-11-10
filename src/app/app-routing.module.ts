@@ -18,7 +18,7 @@ const routes: Routes = [
     component:SignupComponent
   },
   {
-    path:'product',
+    path:'product/:productId',
     component:ProductComponent
   },
   {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { WishlistService } from 'src/app/_services/wishlist.service';
 import {ProductService} from "../../../_services/product.service"
 
@@ -23,13 +25,12 @@ export class WishlistComponent implements OnInit {
   Mi 11X 5G Cosmic Black 6GB RAM 128GB ROM | SD 870 | DisplayMate A+ rated E4 AMOLED
   Mi 11X 5G Cosmic Black 6GB RAM 128GB ROM | SD 870 | DisplayMate A+ rated E4 AMOLED `;
  
-  constructor(private _productService: ProductService, private _wishlistService: WishlistService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private _productService: ProductService, private _wishlistService: WishlistService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private snackbar: MatSnackBar, private router: Router) {
     iconRegistry.addSvgIconLiteral('wishlist-icon', sanitizer.bypassSecurityTrustHtml(WISHLIST_ICON));
   }
 
   ngOnInit(): void {
     this._wishlistService.getWishlist().subscribe(data => {
-      // console.log(data);
       this.wishlist= data.data
     }, error => {
       console.log(error)
@@ -39,9 +40,15 @@ export class WishlistComponent implements OnInit {
   addToCart(productId:string) {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
+      let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/cart']);
+      })
       console.log(data);
     })
   }
-
-  }
+}
 

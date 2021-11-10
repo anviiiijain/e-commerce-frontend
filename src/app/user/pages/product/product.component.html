@@ -1,14 +1,20 @@
 <app-navbar></app-navbar>
 <div class="product-page">
     <div class="product-details">
+        <!-- <div class="image-collection" *ngFor="let detail of productDetails.productImages"> -->
         <div class="image-collection">
-            <mat-card><embed></mat-card>
-            <mat-card><embed></mat-card>
-            <mat-card><embed></mat-card>
-            <mat-card><embed></mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
         </div>
         <mat-card>
-            <embed>
+            <embed mat-card-xl-image [src]="productDetails.productImages[0].productImageUrl | safe" alt="">
         </mat-card>
         <mat-card>
             <mat-card-title>{{productDetails.productName}}</mat-card-title>
@@ -26,7 +32,9 @@
                     </p>
                 </div>
                 <div class="actions">
-                    <span (click)="addToCart(productDetails.productId)"><mat-icon >shopping_cart</mat-icon></span>
+                    <span (click)="addToCart(productDetails.productId)">
+                        <mat-icon>shopping_cart</mat-icon>
+                    </span>
                     <mat-icon (click)="addToWishlist(productDetails.productId)">favorite_border</mat-icon>
                     <button mat-raised-button class="primary-button">Buy Now</button>
                 </div>
@@ -45,7 +53,7 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{faq.question}} 
+                            {{faq.question}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-divider></mat-divider>

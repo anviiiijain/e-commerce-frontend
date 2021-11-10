@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ProductService } from '../../../_services';
 import { CartService } from '../../../_services/cart.service';
 
@@ -13,7 +15,7 @@ export class CartComponent implements OnInit {
   public quant=2;
   public total="3,56,829";
   
-  constructor(private _cartService: CartService, private _productService: ProductService) {}
+  constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) {}
 
   ngOnInit(): void {
     this._cartService.getCart().subscribe(data => {
@@ -23,10 +25,15 @@ export class CartComponent implements OnInit {
     })
   }
 
-  addToCart(productId:string) {
-    this._productService.addProductToCart(productId).subscribe(data => {
+  addToWishlist(productId:string) {
+    this._productService.addProductToWishlist(productId).subscribe(data => {
       // logic for animation based on code
-      console.log(data);
+      let snackBarRef = this.snackbar.open("Added to Wishlist", 'Go to Wishlist', {
+        duration: 3000
+      })
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/wishlist']);
+      })
     })
   }
   increaseQuant(){

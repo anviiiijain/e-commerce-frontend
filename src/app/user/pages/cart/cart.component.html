@@ -17,12 +17,12 @@
                 <div class="section">
                     <div>Today's Deal :
                         <span class="striked">₹ {{cartItem.product.originalPrice}}</span>
-                        <span class="deal-price">₹ {{cartItem.product.discountedPrice}}</span>
+                        <span class="red-text">₹ {{cartItem.product.discountedPrice}}</span>
                     </div>
                     <mat-card class="quantity-controller">
                         <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
                         <mat-divider [vertical]="true"></mat-divider>
-                        <span>{{quant}}</span>
+                        <span class="red-text">{{quant}}</span>
                         <mat-divider [vertical]="true"></mat-divider>
                         <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
                     </mat-card>

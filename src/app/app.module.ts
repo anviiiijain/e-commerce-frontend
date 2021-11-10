@@ -20,6 +20,7 @@ import { AuthService } from './_services';
 import { AuthInterceptor } from "./_utils/AuthInterceptor"
 import { CartComponent } from './user/pages/cart/cart.component';
 import {HomepageComponent} from "./user/pages/homepage/homepage.component"
+import { SafePipe } from './_utils/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {HomepageComponent} from "./user/pages/homepage/homepage.component"
     ProductDetailsComponent,
     CartComponent,    
     HomepageComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

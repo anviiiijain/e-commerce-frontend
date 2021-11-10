@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs-compat/operator/map';
 import { ProductService } from 'src/app/_services';
+
 
 @Component({
   selector: 'app-product',
@@ -10,17 +13,22 @@ import { ProductService } from 'src/app/_services';
 })
 export class ProductComponent implements OnInit {
 
-  productId:string="29974588-370a-40d8-8bbe-004964b79a25"
+  productId:string=""
   productDetails:any;
   productReviews:any;
   productFAQs:any;
   stars:number=3.5;
-  constructor(private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) { }
+  constructor(private _productService: ProductService, private snackbar: MatSnackBar, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.productId = this.activatedRoute.snapshot.paramMap.get('productId');
+    console.log("productid",this.productId);
     this._productService.getProductById(this.productId).subscribe(data => {
       this.productDetails= data.data
+      console.log("prod details helooooooooooo");
+      console.log("prod details", this.productDetails);
     }, error => {
+      console.log("bieee");
       console.log(error);
     })
 

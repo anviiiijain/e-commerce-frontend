@@ -24,7 +24,7 @@ export class AuthService {
           console.log(res);
           if (res.code === 200) {
             localStorage.setItem('e-comm-access-token', res.data.accessToken);
-            this.router.navigate(['/']);
+            this.router.navigate(['/products']);
           }
         }),
         shareReplay()

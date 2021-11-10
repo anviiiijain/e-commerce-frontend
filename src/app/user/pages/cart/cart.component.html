@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="cart">
     <div class="cart-header">
         <span class="cart-heading">Your Cart<mat-icon>shopping_cart_border</mat-icon></span>
@@ -17,12 +18,12 @@
                 <div class="section">
                     <div>Today's Deal :
                         <span class="striked">₹ {{cartItem.product.originalPrice}}</span>
-                        <span class="deal-price">₹ {{cartItem.product.discountedPrice}}</span>
+                        <span class="red-text">₹ {{cartItem.product.discountedPrice}}</span>
                     </div>
                     <mat-card class="quantity-controller">
                         <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
                         <mat-divider [vertical]="true"></mat-divider>
-                        <span>{{quant}}</span>
+                        <span class="red-text">{{quant}}</span>
                         <mat-divider [vertical]="true"></mat-divider>
                         <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
                     </mat-card>
@@ -47,3 +48,4 @@
         <button mat-raised-button class="secondary-button">Checkout</button>
     </div>
 </div>
+<app-footer></app-footer>

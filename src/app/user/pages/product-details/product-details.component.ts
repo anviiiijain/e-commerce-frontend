@@ -39,7 +39,6 @@ export class ProductDetailsComponent implements OnInit {
   addToCart(productId:string) {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
-      console.log("cart dataaaa",data);
       let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
         duration: 3000
       })

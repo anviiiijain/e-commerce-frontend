@@ -8,12 +8,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
   declarations: [
   
-    HomepageComponent
+    HomepageComponent,
+        CheckoutComponent
   ],
   imports: [
     CommonModule,

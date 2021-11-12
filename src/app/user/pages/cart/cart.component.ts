@@ -11,9 +11,9 @@ import { CartService } from '../../../_services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cartData:any
-  public quant=2;
-  public total="3,56,829";
+  cartData:any 
+  public quant=1;
+  public totalAmount = 0;
   
   constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) {}
 
@@ -22,7 +22,10 @@ export class CartComponent implements OnInit {
       this.cartData= data.data
     }, error => {
       console.log(error)
-    })
+    });
+
+    this.getTotal();
+
   }
 
   addToWishlist(productId:string) {
@@ -34,22 +37,16 @@ export class CartComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/wishlist']);
       })
-    },error=>{
-      console.log(error);
-      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
-        duration: 3000
-      })
-      snackBarRef.onAction().subscribe(() => {
-        window.location.reload();
-      })
     })
   }
+
   removeFromCart(productId:string) {
     this._productService.removeProductFromCart(productId).subscribe(data => {
       // logic for animation based on code
       let snackBarRef = this.snackbar.open("Removed from Cart", 'Dismiss', {
         duration: 3000
       })
+      this.cartData = this.cartData.filter((cartItem:any) => cartItem.product.productId !== productId)
       snackBarRef.onAction().subscribe(() => {
         
       })
@@ -71,5 +68,15 @@ export class CartComponent implements OnInit {
     if(this.quant>0){
     this.quant=this.quant-1;
     }
+  }
+
+  getTotal(){
+    let total = 0;
+    for (var i = 0; i < this.cartData.length; i++) {
+        if (this.cartData[i].product.discountedPrice) {
+            total += this.cartData[i].product.discountedPrice;
+          }
+        }
+    this.totalAmount = total;
   }
 }

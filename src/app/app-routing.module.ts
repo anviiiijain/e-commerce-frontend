@@ -34,7 +34,7 @@ const routes: Routes = [
     component: CartComponent
   },
   {
-    path:'homepage',
+    path:'home',
     component: HomepageComponent
   },
 ];

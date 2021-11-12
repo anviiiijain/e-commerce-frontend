@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs-compat/operator/map';
+// import { map } from 'rxjs-compat/operator/map';
 import { ProductService } from 'src/app/_services';
 
 
@@ -68,6 +68,9 @@ export class ProductComponent implements OnInit {
         this.router.navigate(['/wishlist']);
       })
       console.log(data);
-    })
+    }, error => {
+      console.log(error.message)
+    }
+    )
   }
 }

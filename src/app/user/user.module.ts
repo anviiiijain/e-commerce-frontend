@@ -12,8 +12,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
-  
-    HomepageComponent
   ],
   imports: [
     CommonModule,

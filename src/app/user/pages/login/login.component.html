@@ -1,0 +1,18 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title><img src="../../../../assets/images/logo.svg" alt=""></mat-card-title><br>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" class="login-form" action="">
+                <mat-form-field appearance='outline'>
+                    <mat-label>Email</mat-label>
+                    <input [(ngModel)]="email" name="email" matInput type="email">
+                </mat-form-field>
+                <mat-form-field appearance='outline'>
+                    <mat-label>Password</mat-label>
+                    <input [(ngModel)]="password" name="password" matInput type="password">
+                </mat-form-field>
+                <button type="submit" mat-raised-button class="secondary-button-largest">Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

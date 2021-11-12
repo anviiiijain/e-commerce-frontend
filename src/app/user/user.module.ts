@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
-
-import { SharedModule } from '../shared/shared.module';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LoaderComponent } from './loader/loader.component';
-
+import { MaterialModule } from '../material/material.module';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -19,7 +21,12 @@ import { LoaderComponent } from './loader/loader.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    MaterialModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSidenavModule,
+    
   ]
 })
 export class UserModule { }

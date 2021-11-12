@@ -48,7 +48,37 @@ export class WishlistComponent implements OnInit {
         this.router.navigate(['/cart']);
       })
       console.log(data);
-    })
+    },error=>{
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+          window.location.reload();
+      })
+    }
+    )
+  }
+  removeFromWishlist(productId:string) {
+    this._productService.removeProductFromWishlist(productId).subscribe(data => {
+      // logic for animation based on code
+      let snackBarRef = this.snackbar.open("Removed from Wishlist", 'Dismiss', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+      })
+      console.log(data);
+    },error=>{
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+          window.location.reload();
+      })
+    }
+    )
   }
 }
 

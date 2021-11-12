@@ -68,6 +68,9 @@ export class ProductComponent implements OnInit {
         this.router.navigate(['/wishlist']);
       })
       console.log(data);
-    })
+    }, error => {
+      console.log(error.message)
+    }
+    )
   }
 }

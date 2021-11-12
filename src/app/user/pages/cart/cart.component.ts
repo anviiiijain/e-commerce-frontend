@@ -34,6 +34,33 @@ export class CartComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/wishlist']);
       })
+    },error=>{
+      console.log(error);
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      })
+      snackBarRef.onAction().subscribe(() => {
+        window.location.reload();
+      })
+    })
+  }
+  removeFromCart(productId:string) {
+    this._productService.removeProductFromCart(productId).subscribe(data => {
+      // logic for animation based on code
+      let snackBarRef = this.snackbar.open("Removed from Cart", 'Dismiss', {
+        duration: 3000
+      })
+      snackBarRef.onAction().subscribe(() => {
+        
+      })
+    },error=>{
+      console.log(error);
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      })
+      snackBarRef.onAction().subscribe(() => {
+        window.location.reload();
+      })
     })
   }
   increaseQuant(){

@@ -20,7 +20,7 @@
                             ₹27,999.00</span> </p>
                 </mat-card-content>
     
-                <mat-card-actions align="end" class="item-button">
+                <mat-card-actions align="end" class="item-button" (click)="removeFromWishlist(wishlistItem.product.productId)">
                         <mat-icon class="item-button-removewishlist">delete_outline</mat-icon>
                     <button mat-raised-button class="item-button-addtocart" (click)="addToCart(wishlistItem.product.productId)">
                         <mat-icon>shopping_cart</mat-icon> Add to Cart

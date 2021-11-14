@@ -57,10 +57,6 @@ export class ProductService {
     return this.http.delete(`${_url}/user/wishlist?productId=${productId}`)
   }
 
-  getProductDiscountedPrice(discountedPrice:string): Observable<IResponse> {
-    return this.http.post<IResponse>(`${_url}/user/cart`, {
-      discountedPrice
-    })
-  }
+
 
 }

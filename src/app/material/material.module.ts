@@ -8,6 +8,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSnackBarModule} from "@angular/material/snack-bar"
@@ -23,7 +24,7 @@ const MaterialComponents = [
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatGridListModule,
+  MatProgressBarModule,
   MatSnackBarModule
 ];
 

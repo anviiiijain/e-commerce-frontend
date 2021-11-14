@@ -1,15 +1,15 @@
-<mat-toolbar style="background: transparent;">
+<mat-toolbar class="navbar" style="background: transparent;">
    <span class='logo'> <img src="../../../assets/images/logo.svg" height=25 alt=""></span>
-   
-
-    <a mat-button>Home</a>
-    <a mat-button>Services</a>
+    <span><a mat-button>Home</a>
+    <a mat-button>Services</a></span>
+    <div id="nav-search">
     <form class="searchbar">
         <input type='text' placeholder="Search">
         <button mat-icon-button class="search-icon">
             <mat-icon cap>search</mat-icon>
           </button>
     </form>
+  </div>
     <div class="spacer"></div>
     <button class="right-button cart-button" style="padding-left: 10px; padding-right: 65px; background-color:#548CA8;  border-radius:20px; " mat-icon-button>
         <mat-icon>shopping_cart</mat-icon>
@@ -27,7 +27,6 @@
           <mat-icon>person</mat-icon>
           <span>Signup</span>
         </button>
-        
         <button mat-menu-item >
           <mat-icon>login</mat-icon>
           <span>Login</span>
@@ -37,5 +36,7 @@
           <span>Logout</span>
         </button>
       </mat-menu>
+    
+
 
 </mat-toolbar>

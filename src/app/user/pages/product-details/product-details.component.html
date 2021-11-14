@@ -24,7 +24,7 @@
                 </mat-card-content>
 
                 <mat-card-actions align="end" class=" item-button">
-                    <mat-icon svgIcon="wishlist-icon"></mat-icon>
+                    <mat-icon (click)="addToWishlist(product.productId)" svgIcon="wishlist-icon"></mat-icon>
                     <button mat-button class="item-button-addtocart" (click)="addToCart(product.productId)">
                         <mat-icon>shopping_cart</mat-icon> Add to Cart
                     </button>

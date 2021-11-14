@@ -39,15 +39,25 @@ export class ProductDetailsComponent implements OnInit {
   addToCart(productId:string) {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
-      console.log("cart dataaaa",data);
       let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
         duration: 3000
-      })
+      });
 
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/cart']);
       })
-    })
+      console.log(data);
+    },
+    error=>{
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+          window.location.reload();
+      })
+    }
+    )
   }
 
   addToWishlist(productId:string) {

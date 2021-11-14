@@ -13,6 +13,7 @@ import { FooterComponent } from './user/components/footer/footer.component';
 import { ProductComponent } from './user/pages/product/product.component';
 import { StarsComponent } from './user/components/stars/stars.component';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './user/loader/loader.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ProductService } from './_services/product.service';
 import { WishlistService } from './_services/wishlist.service';
@@ -26,6 +27,7 @@ import { SafePipe } from './_utils/safe.pipe';
   declarations: [
     AppComponent,
     SignupComponent,
+    LoaderComponent,
     FooterComponent,
     LoginComponent,
     ProductComponent,

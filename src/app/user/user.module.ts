@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
+import { LoaderComponent } from './loader/loader.component';
 import { MaterialModule } from '../material/material.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { BrowserModule } from '@angular/platform-browser';

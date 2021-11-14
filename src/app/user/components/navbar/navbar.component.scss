@@ -1,3 +1,9 @@
+.navbar{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .logo{
     margin-top: 8px;
 }
@@ -5,7 +11,7 @@
 .spacer {
     flex: 1 1 auto;
 }
-
+w
 .example-form-field {
     width: 200px;
   }
@@ -15,8 +21,8 @@
   }
 
   form.searchbar input[type=text]{
-     
-        margin-left: 50px;
+       
+        margin-left: 40px;
         margin-right: 2px;
         padding-left: 5px;
         height: 30px;
@@ -24,6 +30,7 @@
         border-radius: 10px;
         border-color: black;
   }
+
 
   .search-icon{
     color: #1976D2 ;

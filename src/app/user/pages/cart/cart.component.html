@@ -2,7 +2,7 @@
 <div class="cart">
     <div class="cart-header">
         <span class="cart-heading">Your Cart<mat-icon>shopping_cart_border</mat-icon></span>
-        <div class="total sm-hide">Your Total : <span>₹ {{totalAmount}}</span></div>
+        <div class="total sm-hide">Your Total : <span>₹ {{getTotal()}}</span></div>
         <button mat-raised-button class="secondary-button sm-hide">Checkout</button>
     </div>
     <div *ngFor="let cartItem of cartData">
@@ -49,7 +49,7 @@
         No Items in Cart :(
     </div>
     <div class="cart-header">
-        <div class="total">Your Total : <span class="amount">₹ {{totalAmount}}</span></div>
+        <div class="total">Your Total : <span class="amount">₹ {{getTotal()}}</span></div>
         <button mat-raised-button class="secondary-button" (click)="getTotal()">Checkout</button>
     </div>
 </div>

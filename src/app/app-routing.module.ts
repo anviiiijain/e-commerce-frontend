@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from "./user/pages/product-details/product-de
 import { CartComponent } from "./user/pages/cart/cart.component";
 import {HomepageComponent} from "./user/pages/homepage/homepage.component"
 import { CheckoutComponent } from './user/pages/checkout/checkout.component';
+import { PaymentComponent } from './user/pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -35,12 +36,16 @@ const routes: Routes = [
     component: CartComponent
   },
   {
-    path:'homepage',
+    path:'home',
     component: HomepageComponent
   },
   {
     path:'checkout',
     component: CheckoutComponent
+  },
+  {
+    path:'pay',
+    component: PaymentComponent
   },
 ];
 

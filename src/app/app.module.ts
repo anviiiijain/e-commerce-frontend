@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './user/components/footer/footer.component';
 import { ProductComponent } from './user/pages/product/product.component';
 import { StarsComponent } from './user/components/stars/stars.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ProductService } from './_services/product.service';
 import { WishlistService } from './_services/wishlist.service';
@@ -21,6 +21,8 @@ import { AuthInterceptor } from "./_utils/AuthInterceptor"
 import { CartComponent } from './user/pages/cart/cart.component';
 import {HomepageComponent} from "./user/pages/homepage/homepage.component"
 import { SafePipe } from './_utils/safe.pipe';
+import { NgxStripeModule } from "ngx-stripe"
+import { PaymentComponent } from './user/pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { SafePipe } from './_utils/safe.pipe';
     ProductDetailsComponent,
     CartComponent,    
     HomepageComponent,
-    SafePipe
+    SafePipe,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +46,9 @@ import { SafePipe } from './_utils/safe.pipe';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    
+    NgxStripeModule.forRoot('pk_test_51H7jhsFnqDkYLAYJdj5aMcS9QfZebNfuxkm8uatrjs58VF6V3fWbCGwGJ8YYOuBC3wpIF0CmCaT2GueuCAvTPZDJ00TKtb4nJT')
   ],
   providers: [ProductService, WishlistService, AuthService, {
     provide: HTTP_INTERCEPTORS, 

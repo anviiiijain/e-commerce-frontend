@@ -16,9 +16,18 @@ export class ProductService {
     return this.http.get<IResponse>(`${_url}/products`)
   }
 
+  getCategories():Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/user/category-products`)
+  }
+
   getProductById(productId:string): Observable<IResponse> {
     return this.http.get<IResponse>(`${_url}/products?productId=${productId}`)
   }
+
+  getProductByCategory(categoryId:string): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/category-products`)
+  }
+
 
   getReviewsById(productId:string): Observable<IResponse> {
     return this.http.get<IResponse>(`${_url}/user/reviews/${productId}`)
@@ -38,6 +47,14 @@ export class ProductService {
     return this.http.post<IResponse>(`${_url}/user/wishlist`, {
       productId
     })
+  }
+
+  removeProductFromCart(productId:string) {
+    return this.http.delete(`${_url}/user/cart?productId=${productId}`)
+  }
+
+  removeProductFromWishlist(productId:string) {
+    return this.http.delete(`${_url}/user/wishlist?productId=${productId}`)
   }
 
 }

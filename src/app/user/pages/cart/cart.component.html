@@ -30,7 +30,8 @@
                 </div>
                 <mat-divider [inset]="true"></mat-divider>
                 <mat-card-footer class="section">
-                    <button mat-raised-button class="secondary-button">
+                    <button mat-raised-button class="secondary-button"
+                    (click)="removeFromCart(cartItem.product.productId)">
                         <mat-icon>clear</mat-icon>
                         Remove from Cart
                     </button>

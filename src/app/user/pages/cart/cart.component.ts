@@ -78,5 +78,6 @@ export class CartComponent implements OnInit {
           }
         }
     this.totalAmount = total;
+    return this.totalAmount;
   }
 }

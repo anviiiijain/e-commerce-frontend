@@ -42,27 +42,27 @@
 
   <div *ngFor="let category of categories">
     <h2 class="category-heading">
-      Category Name <mat-icon>keyboard_arrow_right</mat-icon>
+      {{category.categoryName}} <mat-icon>keyboard_arrow_right</mat-icon>
     </h2>
     <div class="catCarousel">
-        <mat-card *ngFor="let product of category.products.data"  class="cat-card">
-          <mat-card-header>
-            <mat-card-title class="catCardTitleText">{{product.productName}}</mat-card-title>
-          </mat-card-header>
-          <div class="catSlideImage">
-            <img src="\assets\images\dji1.jpg" alt="DJI" />
+      <mat-card *ngFor="let product of category.products.data" class="cat-card">
+        <mat-card-header>
+          <mat-card-title class="catCardTitleText">{{product.productName}}</mat-card-title>
+        </mat-card-header>
+        <div class="catSlideImage">
+          <img src="\assets\images\dji1.jpg" alt="DJI" />
+        </div>
+        <div class="stars">
+          <stars [stars]="stars"></stars>
+        </div>
+        <mat-card-actions>
+          <div class="actions">
+            <mat-icon>shopping_cart</mat-icon>
+            <mat-icon>favorite_border</mat-icon>
           </div>
-          <div class="stars">
-              <stars [stars]="stars"></stars>
-          </div>
-          <mat-card-actions>
-              <div class="actions">
-                  <mat-icon>shopping_cart</mat-icon>
-                  <mat-icon>favorite_border</mat-icon>
-              </div>
-              <button mat-raised-button class="primary-button">View More</button>
-          </mat-card-actions>
-        </mat-card>
+          <button mat-raised-button class="primary-button">View More</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>

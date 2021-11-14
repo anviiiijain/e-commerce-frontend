@@ -11,16 +11,17 @@ import flickity from "flickity";
 export class HomepageComponent implements OnInit {
   stars=3.5;
   categories:any;
+  flick:any;
   constructor(private _productService: ProductService,private snackbar:MatSnackBar,private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this._productService.getCategories().subscribe(data => {
-      this.categories= data.data;
+      this.categories= data.data.filter((category:any) => category.products.data.length>0);
+      console.log("Categories", this.categories);
       this.cdr.detectChanges();
       document.querySelectorAll(".catCarousel").forEach(card=>{
-        let flick=new flickity(card,{"draggable": false,"contain": true,"initialIndex": 1,"pageDots": false})
+        this.flick=new flickity(card,{"draggable": false,"contain": true,"initialIndex": 1,"pageDots": false})
       })
-      console.log("categories",this.categories)
     }, error => {
       console.log(error)
     })

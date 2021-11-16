@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/_services';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
-// import flickity from "flickity";
+import flickity from "flickity";
 
 @Component({
   selector: 'app-homepage',
@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
       console.log("Categories", this.categories);
       this.cdr.detectChanges();
       document.querySelectorAll(".catCarousel").forEach(card=>{
-        // this.flick=new flickity(card,{"draggable": false,"contain": true,"initialIndex": 1,"pageDots": false})
+        this.flick=new flickity(card,{"draggable": false,"contain": true,"initialIndex": 1,"pageDots": false})
       })
     }, error => {
       console.log(error)
@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
 
   prepend(){
     console.log("teest");
-    // this.flick.prepend(`<div class="cat-card"></div>`);
+  this.flick.prepend(`<div class="cat-card"></div>`);
   }
 
   gotoProduct(productId:string): void {

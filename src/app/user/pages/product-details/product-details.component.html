@@ -8,7 +8,7 @@
         <mat-card class="card-space">
             <embed mat-card-xl-image [src]="product.productImages[0].productImageUrl | safe" alt="">
             <div class="card-item">
-                <mat-card-title class="item-title">
+                <mat-card-title class="item-title" (click)="gotoProduct(product.productId)">
                     {{product.productName}}
                 </mat-card-title>
                 <mat-card-content class="item">

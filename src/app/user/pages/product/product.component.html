@@ -35,7 +35,7 @@
                         <mat-icon>shopping_cart</mat-icon>
                     </span>
                     <mat-icon (click)="addToWishlist(productDetails.productId)">favorite_border</mat-icon>
-                    <button mat-raised-button class="primary-button">Buy Now</button>
+                    <button mat-raised-button class="primary-button" (click)="addToCart(productDetails.productId)" routerLink = "/cart">Buy Now</button>
                 </div>
             </div>
             <mat-divider [inset]='true'></mat-divider>
@@ -60,6 +60,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
+        <div *ngIf="productFAQs.length==0">No questions asked</div>
     </div>
     <div class="reviews">
         <h2>Reviews</h2>

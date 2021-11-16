@@ -74,6 +74,10 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
 
+  gotoProduct(productId:string): void {
+    this.router.navigate(['/product', productId]);
+  }
+
   // openSnackBar(message:string) {
   //   this.snackbar.open(message, 'Dismiss', {
   //     duration: 2000

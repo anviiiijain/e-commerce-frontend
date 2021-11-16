@@ -35,6 +35,7 @@ export class CartComponent implements OnInit {
       let snackBarRef = this.snackbar.open("Added to Wishlist", 'Go to Wishlist', {
         duration: 3000
       })
+
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/wishlist']);
       })

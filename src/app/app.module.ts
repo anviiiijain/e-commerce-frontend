@@ -20,11 +20,12 @@ import { WishlistService } from './_services/wishlist.service';
 import { AuthService } from './_services';
 import { AuthInterceptor } from "./_utils/AuthInterceptor"
 import { CartComponent } from './user/pages/cart/cart.component';
-import {HomepageComponent} from "./user/pages/homepage/homepage.component"
+
 import { SafePipe } from './_utils/safe.pipe';
 import { NgxStripeModule } from "ngx-stripe"
 import { PaymentComponent } from './user/pages/payment/payment.component';
 import { CheckoutComponent } from './user/pages/checkout/checkout.component';
+import { HomepageComponent } from './user/pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [

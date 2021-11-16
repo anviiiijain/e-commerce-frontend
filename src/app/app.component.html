@@ -1,4 +1,4 @@
-<ng-container *ngIf="path==='/login' || path==='/signup';then thenBlock;else elseBlock"></ng-container>
+<ng-container *ngIf="path==='/login' || path==='/signup' || path==='/checkout';then thenBlock;else elseBlock"></ng-container>
 <ng-template #thenBlock>
     <router-outlet></router-outlet>
 </ng-template>

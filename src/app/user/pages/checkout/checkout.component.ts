@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { numbers } from '@material/dialog';
 import { StripeService, Elements, Element as StripeElement, ElementsOptions } from "ngx-stripe";
 import { CheckoutService } from 'src/app/_services/checkout.service';
@@ -26,7 +28,7 @@ export class CheckoutComponent implements OnInit {
   
     stripeForm: FormGroup;
   
-    constructor(private fb: FormBuilder, private stripeService: StripeService,private _checkoutService: CheckoutService, private dataService: DataService) { }
+    constructor(private fb: FormBuilder, private stripeService: StripeService,private _checkoutService: CheckoutService,private snackbar: MatSnackBar, private router: Router,private dataService: DataService) { }
   
     ngOnInit(): void {
       this.loading = false;
@@ -80,7 +82,13 @@ export class CheckoutComponent implements OnInit {
               if(res['success']) { 
                 this.loading = false; 
                 this.submitted = false; 
-                this.paymentStatus = res['status']; 
+                this.paymentStatus = res['status'];
+                let snackBarRef = this.snackbar.open("Payment Successful","Go to Home", {
+                  duration: 1500
+                }) 
+                snackBarRef.onAction().subscribe(() => {
+                  this.router.navigate(['/']);
+                })
               } else { 
                 this.loading = false; 
                 this.submitted = false; 

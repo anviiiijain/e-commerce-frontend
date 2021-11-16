@@ -1,42 +1,46 @@
-<mat-toolbar class="navbar" style="background: transparent;">
-   <span class='logo'> <img src="../../../assets/images/logo.svg" height=25 alt=""></span>
-    <span><a mat-button>Home</a>
-    <a mat-button>Services</a></span>
-    <div id="nav-search">
-    <form class="searchbar">
+<div>
+  <mat-icon class="menu" (click)="toggleNavbar()" [class.hide]="navbarIsActive">menu</mat-icon>
+  <!-- <div>{{navbarIsActive}}</div> -->
+  <mat-toolbar class="navbar" [class.active]="navbarIsActive">
+    <mat-icon class="close" (click)="toggleNavbar()">close</mat-icon>
+    <span> <img src="../../../assets/images/navbarlogo.svg" height=35 alt="logo"></span>
+    
+ 
+     <a mat-button routerLink="/products" routerLinkActive="active">
+       <mat-icon>shopping_bag_outlined</mat-icon>
+       <span >Products</span>
+      </a>
+     <a mat-button routerLink="/cart">
+         <mat-icon>shopping_cart_outlined</mat-icon>
+         <span > Cart </span>
+     </a>
+       <a mat-button routerLink="/wishlist">
+        <mat-icon>favorite_border</mat-icon>
+         <span >Wishlist</span>
+       </a>
+       <form class="searchbar">
         <input type='text' placeholder="Search">
         <button mat-icon-button class="search-icon">
             <mat-icon cap>search</mat-icon>
           </button>
     </form>
-  </div>
-    <div class="spacer"></div>
-    <button class="right-button cart-button" style="padding-left: 10px; padding-right: 65px; background-color:#548CA8;  border-radius:20px; " mat-icon-button>
-        <mat-icon>shopping_cart</mat-icon>
-        <span> Cart </span>
-      </button>
-      <button class="right-button wishlist-button" style="padding-left: 10px; padding-right: 87px;   border-radius: 20px" mat-icon-button>
-        <span style="padding-right: 5px;">Wishlist</span>
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button class="right-button" [matMenuTriggerFor]="menu" mat-icon-button>
-        <mat-icon class="account-settings">account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>person</mat-icon>
-          <span>Signup</span>
-        </button>
-        <button mat-menu-item >
-          <mat-icon>login</mat-icon>
-          <span>Login</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>logout</mat-icon>
-          <span>Logout</span>
-        </button>
-      </mat-menu>
-    
-
-
-</mat-toolbar>
+      <ng-container *ngIf="isLoggedIn;then thenBlock ; else elseBlock"></ng-container>
+      <ng-template #thenBlock>
+          <button class="primary-button" routerLink="/signup">
+            <mat-icon>person</mat-icon>
+            <span>Signup</span>
+          </button>
+          
+          <button class="secondary-button" routerLink="/login">
+            <mat-icon>login</mat-icon>
+            <span>Login</span>
+          </button>
+      </ng-template>
+       <ng-template #elseBlock>
+          <a  mat-button routerLink="/login">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </a>
+       </ng-template>
+ </mat-toolbar>
+</div>

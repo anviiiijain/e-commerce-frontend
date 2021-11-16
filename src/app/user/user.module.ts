@@ -15,7 +15,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 @NgModule({
   declarations: [
   
-    PaymentComponent
+ 
   ],
   imports: [
     CommonModule,

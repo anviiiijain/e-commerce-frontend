@@ -23,6 +23,7 @@ import {HomepageComponent} from "./user/pages/homepage/homepage.component"
 import { SafePipe } from './_utils/safe.pipe';
 import { NgxStripeModule } from "ngx-stripe"
 import { PaymentComponent } from './user/pages/payment/payment.component';
+import { CheckoutComponent } from './user/pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PaymentComponent } from './user/pages/payment/payment.component';
     CartComponent,    
     HomepageComponent,
     SafePipe,
-    PaymentComponent
+    PaymentComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

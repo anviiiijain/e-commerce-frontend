@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ProductService } from '../../../_services';
 import { CartService } from '../../../_services/cart.service';
+import { CheckoutService } from 'src/app/_services/checkout.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,9 +14,13 @@ export class CartComponent implements OnInit {
 
   cartData:any
   public quant=2;
-  public total="3,56,829";
+  public totalAmount: number = 0;
+
+
+
+
   
-  constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) {}
+  constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private _checkoutService: CheckoutService ,private router: Router) {}
 
   ngOnInit(): void {
     this._cartService.getCart().subscribe(data => {
@@ -45,11 +50,14 @@ export class CartComponent implements OnInit {
     })
   }
   removeFromCart(productId:string) {
+   
     this._productService.removeProductFromCart(productId).subscribe(data => {
+
       // logic for animation based on code
       let snackBarRef = this.snackbar.open("Removed from Cart", 'Dismiss', {
         duration: 3000
       })
+      this.cartData = this.cartData.filter((cartItem:any) => cartItem.product.productId !== productId)
       snackBarRef.onAction().subscribe(() => {
         
       })
@@ -61,7 +69,9 @@ export class CartComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         window.location.reload();
       })
+    
     })
+  
   }
   increaseQuant(){
     this.quant=this.quant+1;
@@ -71,5 +81,17 @@ export class CartComponent implements OnInit {
     if(this.quant>0){
     this.quant=this.quant-1;
     }
+  }
+
+  getTotal(){
+    let total = 0;
+    for (var i = 0; i < this.cartData.length; i++) {
+        if (this.cartData[i].product.discountedPrice) {
+            total += this.cartData[i].product.discountedPrice;
+          }
+        }
+    this.totalAmount = total;
+    this._checkoutService.setTotal(total)
+    return this.totalAmount
   }
 }

@@ -33,9 +33,14 @@ const routes: Routes = [
     path:'cart',
     component: CartComponent
   },
+  { 
+    path: '',
+    component: HomepageComponent 
+  },
   {
-    path:'home',
-    component: HomepageComponent
+    path:'**',
+    pathMatch:'full',
+    redirectTo: 'home',
   },
 ];
 

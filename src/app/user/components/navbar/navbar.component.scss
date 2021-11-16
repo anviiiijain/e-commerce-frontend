@@ -1,72 +1,48 @@
 .navbar{
   display: flex;
-  flex-direction: row;
   width: 100%;
-}
-
-mat-toolbar{
-  width: screen;
-  display: flex;
+  padding: 0.5rem;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  align-items: center;
   justify-content: space-evenly;
   gap: 0.5rem;
+  height: unset!important;
 }
 .logo{
-    // margin-top: 8px;
+    margin-top: 0.5rem;
+}
+
+.close{
+  display: none;
+  color: #BD2F2F;
+  position: relative;
+  margin-bottom: -3rem;
 }
 
 .menu{
   display: none;
 }
 
-.example-form-field {
-    width: 200px;
-  }
+form.searchbar{
+display: flex;
+align-items: center;
+  input{
+    padding: 0.5rem;
+    margin:0;
+    height: 2rem;
+    width: 17rem;
+    border-radius: 10px;
+    border:none;
+background-color: #f4f6f7;
 
-  .example-full-width {
-   flex-basis: 50px;
-  }
-
-  form.searchbar input[type=text]{
-       
-        margin-left: 40px;
-        margin-right: 2px;
-        padding-left: 5px;
-        height: 30px;
-        width: 700px;
-
-  .searchbar{
-    display: flex;
-    align-items: center;
-    width: 20rem;
-    input[type=text]{
-     
-        // margin-left: 50px;
-        // margin-right: 2px;
-        padding-left: 1rem;
-        margin:0;
-        height: 2rem;
-        width: 20rem;
-        border-radius: 10px;
-        border:none;
   }
 }
-}
-
 
   .search-icon{
     color: #1976D2 ;
     right: 42px;
     z-index: +1;
-  }
-  
-  .right-button{
-    
-    background-color: black;
-    color: white;
-  }
-
-  .right-button:hover{
-    color: rgb(213, 209, 205);
   }
 
   a{    
@@ -78,41 +54,60 @@ mat-toolbar{
 
   }
 
-  .primary-button{
-    font-size: medium;
-    border-radius: 1rem;
-  }
+ .primary-button , .secondary-button{
+   font-size: medium;
+   border-radius: 1rem;
+ }
 
-  .secondary-button{
-    font-size:medium;
-    border-radius: 1rem;
-  }
-  
-.account-settings{
-  color: white;
-background-color: black;
-}
 
-@media screen and(max-width:1024px){
-  .searchbar{
-    width: 15rem;
-    input{
-      width: 15rem;
-    }
+@media screen and (max-width:1024px) {
+  .close{
+    display: unset;
   }
-  a{
-    font-size: medium;
+  .navbar{
+    flex-direction:column;
+    align-items: flex-start;
+    gap: 3rem;
+    gap: 4rem;
+    width: 40%;
+    height: 100vh!important;
+    position: fixed;
+    right: 0;
+    top:0;
+    z-index: 100;
+    // transform: translateX(0%);
+    transition: 1s ease-in;
+    display: none;
+  }
+  .active{
+    display: flex;
+    // transform: translateX(100%);
+    transition: 1s ease-in;
+  }
+  .menu{
+    display: unset;
+  }
+  .primary-button , .secondary-button{
+    width: 100%;
+    justify-content: center;
   }
 }
 
 @media screen and (max-width:768px) {
-  .menu{
-    display: unset;
+  .navbar{width: 50%;}
+}
+
+@media screen and (max-width:640px) {
+  .navbar{
+    width: 80%;
   }
-  mat-toolbar{
-    flex-direction:column;
-    position: absolute;
-    right: 0;
-    top: 0;
+  form.searchbar{
+    input{
+      width: 14rem;
+    }
+  }
+  .primary-button , .secondary-button{
+    width: unset;
+    justify-content: center;
   }
 }

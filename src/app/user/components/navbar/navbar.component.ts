@@ -9,10 +9,16 @@ import { AuthService } from 'src/app/_services';
 export class NavbarComponent implements OnInit {
   isLoggedIn:boolean;
   value = 'Clear me';
+  navbarIsActive:boolean =true;
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
     this.isLoggedIn=this._authService.isLoggedIn();
+  }
+
+  toggleNavbar(){
+    this.navbarIsActive=!this.navbarIsActive;
+    console.log(this.navbarIsActive)
   }
 
 }

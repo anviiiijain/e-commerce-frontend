@@ -1,0 +1,95 @@
+.navbar{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+mat-toolbar{
+  width: screen;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+}
+.logo{
+    // margin-top: 8px;
+}
+
+.menu{
+  display: none;
+}
+
+.searchbar{
+display: flex;
+align-items: center;
+width: 20rem;
+input[type=text]{
+  padding-left: 1rem;
+  margin:0;
+  height: 2rem;
+  width: 20rem;
+  border-radius: 10px;
+  border:none;
+}
+}
+
+  .search-icon{
+    color: #1976D2 ;
+    right: 42px;
+    z-index: +1;
+  }
+  
+  .right-button{
+    
+    background-color: black;
+    color: white;
+  }
+
+  .right-button:hover{
+    color: rgb(213, 209, 205);
+  }
+
+  a{    
+    
+      // margin-left: 45px;
+      color: black;
+      font-weight: bold;
+  font-size: large;
+
+  }
+  .primary-button{
+    font-size: medium;
+    border-radius: 1rem;
+  }
+
+  .secondary-button{
+    font-size:medium;
+    border-radius: 1rem;
+  }
+  
+.account-settings{
+  color: white;
+background-color: black;
+}
+
+@media screen and(max-width:1024px){
+  .searchbar{
+    width: 15rem;
+    input{
+      width: 15rem;
+    }
+  }
+  a{
+    font-size: medium;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .menu{
+    display: unset;
+  }
+  mat-toolbar{
+    flex-direction:column;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

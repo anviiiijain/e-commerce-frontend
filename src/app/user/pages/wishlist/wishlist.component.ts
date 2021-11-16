@@ -31,7 +31,8 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this._wishlistService.getWishlist().subscribe(data => {
-      this.wishlist= data.data
+      this.wishlist= data.data;
+      console.log(data.data)
     }, error => {
       console.log(error)
     })
@@ -65,6 +66,8 @@ export class WishlistComponent implements OnInit {
       let snackBarRef = this.snackbar.open("Removed from Wishlist", 'Dismiss', {
         duration: 3000
       });
+
+      this.wishlist = this.wishlist.filter((wishlistItem:any) => wishlistItem.product.productId !== productId)
 
       snackBarRef.onAction().subscribe(() => {
       })

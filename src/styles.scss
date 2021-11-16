@@ -66,5 +66,11 @@ mat-icon{
      justify-content: space-between;
  }
 
+ @media screen and (max-width:1024px){
+     .l-hide{
+         display: none;
+     }
+ }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -46,7 +46,18 @@ export class ProductDetailsComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/cart']);
       })
-    })
+      console.log(data);
+    },
+    error=>{
+      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+        duration: 3000
+      });
+
+      snackBarRef.onAction().subscribe(() => {
+          window.location.reload();
+      })
+    }
+    )
   }
 
   addToWishlist(productId:string) {

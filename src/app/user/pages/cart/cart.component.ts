@@ -12,13 +12,9 @@ import { CheckoutService } from 'src/app/_services/checkout.service';
 })
 export class CartComponent implements OnInit {
 
-  cartData:any
-  public quant=2;
-  public totalAmount: number = 0;
-
-
-
-
+  cartData:any 
+  public quant=1;
+  public totalAmount = 0;
   
   constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private _checkoutService: CheckoutService ,private router: Router) {}
 
@@ -27,7 +23,10 @@ export class CartComponent implements OnInit {
       this.cartData= data.data
     }, error => {
       console.log(error)
-    })
+    });
+
+    this.getTotal();
+
   }
 
   addToWishlist(productId:string) {
@@ -39,16 +38,9 @@ export class CartComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/wishlist']);
       })
-    },error=>{
-      console.log(error);
-      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
-        duration: 3000
-      })
-      snackBarRef.onAction().subscribe(() => {
-        window.location.reload();
-      })
     })
   }
+
   removeFromCart(productId:string) {
    
     this._productService.removeProductFromCart(productId).subscribe(data => {

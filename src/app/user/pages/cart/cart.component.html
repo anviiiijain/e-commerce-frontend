@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="cart">
     <div class="cart-header">
         <span class="cart-heading">Your Cart<mat-icon>shopping_cart_border</mat-icon></span>
@@ -7,7 +6,7 @@
     </div>
     <div *ngFor="let cartItem of cartData">
         <mat-card class="cart-card">
-            <img mat-card-xl-image class="product-image" src="../../../../assets/images/background2.png" alt="product">
+            <img mat-card-xl-image class="product-image" [src]="cartItem.product.productImages[0].productImageUrl | safe" alt="product">
             <div class="product-info">
                 <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
                 <mat-card-subtitle>
@@ -43,10 +42,13 @@
                 </mat-card-footer>
             </div>
         </mat-card>
+       
+    </div>
+    <div class="null mat-display-1" *ngIf="cartData.length==0">
+        No Items in Cart :(
     </div>
     <div class="cart-header">
         <div class="total">Your Total : <span class="amount">₹ {{getTotal()}}</span></div>
         <button mat-raised-button class="secondary-button" routerLink="/checkout">Checkout</button>
     </div>
 </div>
-<app-footer></app-footer>

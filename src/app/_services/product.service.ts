@@ -57,4 +57,6 @@ export class ProductService {
     return this.http.delete(`${_url}/user/wishlist?productId=${productId}`)
   }
 
+
+
 }

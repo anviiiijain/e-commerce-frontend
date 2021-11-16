@@ -1,0 +1,46 @@
+<div>
+  <mat-icon class="menu" (click)="toggleNavbar()" [class.hide]="navbarIsActive">menu</mat-icon>
+  <!-- <div>{{navbarIsActive}}</div> -->
+  <mat-toolbar class="navbar" [class.active]="navbarIsActive">
+    <mat-icon class="close" (click)="toggleNavbar()">close</mat-icon>
+    <span routerLink = "/"> <img src="../../../assets/images/navbarlogo.svg" height=35 alt="logo"></span>
+    
+ 
+     <a mat-button routerLink="/products" routerLinkActive="active">
+       <mat-icon>shopping_bag_outlined</mat-icon>
+       <span >Products</span>
+      </a>
+     <a mat-button routerLink="/cart">
+         <mat-icon>shopping_cart_outlined</mat-icon>
+         <span > Cart </span>
+     </a>
+       <a mat-button routerLink="/wishlist">
+        <mat-icon>favorite_border</mat-icon>
+         <span >Wishlist</span>
+       </a>
+       <form class="searchbar">
+        <input type='text' placeholder="Search">
+        <button mat-icon-button class="search-icon">
+            <mat-icon cap>search</mat-icon>
+          </button>
+    </form>
+      <ng-container *ngIf="isLoggedIn;then thenBlock ; else elseBlock"></ng-container>
+      <ng-template #elseBlock>
+          <button class="primary-button" routerLink="/signup">
+            <mat-icon>person</mat-icon>
+            <span>Signup</span>
+          </button>
+          
+          <button class="secondary-button" routerLink="/login">
+            <mat-icon>login</mat-icon>
+            <span>Login</span>
+          </button>
+      </ng-template>
+       <ng-template #thenBlock>
+          <a  mat-button routerLink="/login">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </a>
+       </ng-template>
+ </mat-toolbar>
+</div>

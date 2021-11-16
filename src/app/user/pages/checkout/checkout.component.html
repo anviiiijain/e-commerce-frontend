@@ -1,0 +1,21 @@
+<div class="checkout-page">
+<mat-card class="card-space">
+<h3 class="pb-5">Please do the payment!!</h3>
+<form class="mb-5" novalidate (ngSubmit)="buy()" [formGroup]="stripeForm">
+    <div class="form—group mat-display-1">
+        Anadi
+    </div>
+    <mat-label class="mat-title total"> <span> Total Amount </span>
+    <span class="red-text"> ₹{{displayTotal()}}
+    </span>
+</mat-label>
+
+    <mat-label class="mat-title">Card Details</mat-label>
+    <div class="form—group">
+        <div id="card-element" class=""></div>
+    </div>
+    
+    <button mat-button class="buy-button" type="submit" data-toggle="modal" >BUY</button>
+</form>
+</mat-card>
+</div>

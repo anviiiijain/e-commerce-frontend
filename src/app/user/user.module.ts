@@ -1,17 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserRoutingModule } from './user-routing.module';
+import { LoaderComponent } from './loader/loader.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MaterialModule } from '../material/material.module';
 
-import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+ 
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    MaterialModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSidenavModule,
+    
   ]
 })
 export class UserModule { }

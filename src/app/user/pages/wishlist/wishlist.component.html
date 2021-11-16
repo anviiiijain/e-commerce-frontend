@@ -1,0 +1,34 @@
+<div class="wishlist-page">
+    <h1 class="mat-display-1 wishlist-title">
+        <mat-icon svgIcon="wishlist-icon"></mat-icon> Your Wishlist
+    </h1>
+    
+    <div *ngFor="let wishlistItem of wishlist">
+        <mat-card class="card-space">
+            <embed mat-card-xl-image src="../../../../assets/images/product.svg" alt="">
+            <div class="card-item">
+                <mat-card-title class="mat-title item item-title">
+                    {{wishlistItem.product.productName}}
+                </mat-card-title>
+                <mat-card-content class="mat-title item">
+                    <p class="description">
+                        <span>{{wishlistItem.product.description}}</span>
+                        <stars></stars>
+                    </p>
+                    <p><span class="todays-deal"> Today's Deal: <s>₹33,999.00</s></span><span class="red-text">
+                            ₹27,999.00</span> </p>
+                </mat-card-content>
+    
+                <mat-card-actions align="end" class="item-button" (click)="removeFromWishlist(wishlistItem.product.productId)">
+                        <mat-icon class="item-button-removewishlist">delete_outline</mat-icon>
+                    <button mat-raised-button class="item-button-addtocart" (click)="addToCart(wishlistItem.product.productId)">
+                        <mat-icon>shopping_cart</mat-icon> Add to Cart
+                    </button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+    <div class="null mat-display-1" *ngIf="wishlist.length==0">
+        No Items in WishList :(
+    </div>
+</div>

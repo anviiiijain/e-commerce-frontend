@@ -1,0 +1,75 @@
+<div class="product-page">
+    <div class="product-details">
+        <!-- <div class="image-collection" *ngFor="let detail of productDetails.productImages"> -->
+        <div class="image-collection">
+            <mat-card>
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
+            <mat-card>
+                <embed>
+            </mat-card>
+        </div>
+        <mat-card>
+            <embed mat-card-xl-image [src]="productDetails.productImages[0].productImageUrl | safe" alt="">
+        </mat-card>
+        <mat-card>
+            <mat-card-title>{{productDetails.productName}}</mat-card-title>
+            <mat-card-subtitle>{{productDetails.description}}</mat-card-subtitle>
+            <div>
+                <stars [stars]="stars"></stars>
+            </div>
+            <mat-divider [inset]='true'></mat-divider>
+            <div class="section">
+                <div class="price">
+                    <span>Today's Deal:</span>
+                    <p>
+                        <span class="striked">₹ {{productDetails.originalPrice}}</span>
+                        <span class="red-text">₹ {{productDetails.discountedPrice}}</span>
+                    </p>
+                </div>
+                <div class="actions">
+                    <span (click)="addToCart(productDetails.productId)">
+                        <mat-icon>shopping_cart</mat-icon>
+                    </span>
+                    <mat-icon (click)="addToWishlist(productDetails.productId)">favorite_border</mat-icon>
+                    <button mat-raised-button class="primary-button" (click)="addToCart(productDetails.productId)" routerLink = "/cart">Buy Now</button>
+                </div>
+            </div>
+            <mat-divider [inset]='true'></mat-divider>
+            <div>
+                <h2>About Item</h2>
+                <p>about item content goes here</p>
+            </div>
+        </mat-card>
+    </div>
+    <div class="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div *ngFor="let faq of productFAQs">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{faq.question}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-divider></mat-divider>
+                    <p>{{faq.answer}} </p>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div *ngIf="productFAQs.length==0">No questions asked</div>
+    </div>
+    <div class="reviews">
+        <h2>Reviews</h2>
+        <div *ngFor="let review of productReviews">
+            <mat-card>
+                <mat-card-title>{{review.userEmail}} </mat-card-title>
+                <stars [stars]="review.stars"></stars>
+                <mat-card-content>{{review.reviewContent}} </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

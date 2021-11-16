@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ProductService } from '../../../_services';
 import { CartService } from '../../../_services/cart.service';
+import { CheckoutService } from 'src/app/_services/checkout.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ export class CartComponent implements OnInit {
   public quant=1;
   public totalAmount = 0;
   
-  constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private router: Router) {}
+  constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private _checkoutService: CheckoutService ,private router: Router) {}
 
   ngOnInit(): void {
     this._cartService.getCart().subscribe(data => {
@@ -41,7 +42,9 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(productId:string) {
+   
     this._productService.removeProductFromCart(productId).subscribe(data => {
+
       // logic for animation based on code
       let snackBarRef = this.snackbar.open("Removed from Cart", 'Dismiss', {
         duration: 3000
@@ -58,7 +61,9 @@ export class CartComponent implements OnInit {
       snackBarRef.onAction().subscribe(() => {
         window.location.reload();
       })
+    
     })
+  
   }
   increaseQuant(){
     this.quant=this.quant+1;
@@ -78,6 +83,7 @@ export class CartComponent implements OnInit {
           }
         }
     this.totalAmount = total;
-    return this.totalAmount;
+    this._checkoutService.setTotal(total)
+    return this.totalAmount
   }
 }

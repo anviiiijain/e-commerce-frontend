@@ -1,9 +1,8 @@
-<app-navbar></app-navbar>
 <div class="cart">
     <div class="cart-header">
         <span class="cart-heading">Your Cart<mat-icon>shopping_cart_border</mat-icon></span>
         <div class="total sm-hide">Your Total : <span>₹ {{getTotal()}}</span></div>
-        <button mat-raised-button class="secondary-button sm-hide">Checkout</button>
+        <button mat-raised-button class="secondary-button sm-hide" routerLink="/checkout">Checkout</button>
     </div>
     <div *ngFor="let cartItem of cartData">
         <mat-card class="cart-card">
@@ -50,7 +49,6 @@
     </div>
     <div class="cart-header">
         <div class="total">Your Total : <span class="amount">₹ {{getTotal()}}</span></div>
-        <button mat-raised-button class="secondary-button" (click)="getTotal()">Checkout</button>
+        <button mat-raised-button class="secondary-button" routerLink="/checkout">Checkout</button>
     </div>
 </div>
-<app-footer></app-footer>

@@ -1,3 +1,11 @@
-<!-- <app-navbar></app-navbar> -->
-<router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
+<ng-container *ngIf="path==='/login' || path==='/signup';then thenBlock;else elseBlock"></ng-container>
+<ng-template #thenBlock>
+    <router-outlet></router-outlet>
+</ng-template>
+<ng-template #elseBlock>
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</ng-template>
+
+

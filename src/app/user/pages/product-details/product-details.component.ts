@@ -40,8 +40,8 @@ export class ProductDetailsComponent implements OnInit {
     this._productService.addProductToCart(productId).subscribe(data => {
       // logic for animation based on code
       let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
-        duration: 3000
-      });
+        duration: 1500
+      })
 
       snackBarRef.onAction().subscribe(() => {
         this.router.navigate(['/cart']);

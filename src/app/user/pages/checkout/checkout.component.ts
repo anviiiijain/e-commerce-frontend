@@ -72,7 +72,7 @@ export class CheckoutComponent implements OnInit {
       this.loading = true; 
       this.stripeData = this.stripeForm.value;
       this.stripeService
-        .createToken(this.card, {name: "aman"})
+        .createToken(this.card, {name: "anadi"})
         .subscribe(result => { 
           if (result.token) {
             this.stripeData['token']=result.token;
@@ -84,7 +84,7 @@ export class CheckoutComponent implements OnInit {
                 this.submitted = false; 
                 this.paymentStatus = res['status'];
                 let snackBarRef = this.snackbar.open("Payment Successful","Go to Home", {
-                  duration: 1500
+                  duration: 3000
                 }) 
                 snackBarRef.onAction().subscribe(() => {
                   this.router.navigate(['/']);

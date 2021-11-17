@@ -83,5 +83,9 @@ export class WishlistComponent implements OnInit {
     }
     )
   }
+
+  gotoProduct(productId:string): void {
+    this.router.navigate(['/product', productId]);
+  }
 }
 

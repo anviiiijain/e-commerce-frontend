@@ -78,13 +78,20 @@ export class CartComponent implements OnInit {
 
   getTotal(){
     let total = 0;
+    console.log(this.cartData);
     for (var i = 0; i < this.cartData.length; i++) {
         if (this.cartData[i].product.discountedPrice) {
-            total += this.cartData[i].product.discountedPrice;
+          // total += this.cartData[i].product.discountedPrice ;
+           total += this.cartData[i].product.discountedPrice * this.cartData[i].qty;
+          
           }
         }
     this.totalAmount = total;
     this._checkoutService.setTotal(total)
     return this.totalAmount
+  }
+
+  gotoProduct(productId:string): void {
+    this.router.navigate(['/product', productId]);
   }
 }

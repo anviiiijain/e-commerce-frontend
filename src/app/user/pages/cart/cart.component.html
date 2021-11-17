@@ -8,7 +8,7 @@
         <mat-card class="cart-card">
             <img mat-card-xl-image class="product-image" [src]="cartItem.product.productImages[0].productImageUrl | safe" alt="product">
             <div class="product-info">
-                <mat-card-title>{{cartItem.product.productName}}</mat-card-title>
+                <mat-card-title (click)="gotoProduct(cartItem.product.productId)">{{cartItem.product.productName}}</mat-card-title>
                 <mat-card-subtitle>
                     <h3>{{cartItem.product.description}}</h3>
                     <stars [stars]="cartItem.product.stars"></stars>

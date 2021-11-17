@@ -13,13 +13,13 @@ import { CheckoutService } from 'src/app/_services/checkout.service';
 export class CartComponent implements OnInit {
 
   cartData:any 
-  public quant=1;
   public totalAmount = 0;
   
   constructor(private _cartService: CartService, private _productService: ProductService, private snackbar: MatSnackBar, private _checkoutService: CheckoutService ,private router: Router) {}
 
   ngOnInit(): void {
     this._cartService.getCart().subscribe(data => {
+      console.log(this.cartData)
       this.cartData= data.data
     }, error => {
       console.log(error)
@@ -66,19 +66,31 @@ export class CartComponent implements OnInit {
     })
   
   }
-  increaseQuant(){
-    this.quant=this.quant+1;
+  increaseQuant(productId:string,qty:any){
+    this._productService.addProductToCart(productId).subscribe(data => {
+      // logic for animation based on code
+      // let snackBarRef = this.snackbar.open("Quantity Increased", '', {
+      //   duration: 1000
+      // })
+    })
   }
 
-  decreaseQuant(){
-    if(this.quant>0){
-    this.quant=this.quant-1;
+  decreaseQuant(productId:string,qty:any){
+    if(qty>0){
+      this._cartService.decreaseQtyfromCart(productId).subscribe(data=>{
+        // let snackBarRef = this.snackbar.open("qty decreased", '', {
+        //   duration: 1000
+        // })
+      })
+    }
+    else{
+      this.removeFromCart(productId);
     }
   }
 
   getTotal(){
     let total = 0;
-    console.log(this.cartData);
+    // console.log(this.cartData);
     for (var i = 0; i < this.cartData.length; i++) {
         if (this.cartData[i].product.discountedPrice) {
           // total += this.cartData[i].product.discountedPrice ;

@@ -1,6 +1,5 @@
 <div>
   <mat-icon class="menu" (click)="toggleNavbar()" [class.hide]="navbarIsActive">menu</mat-icon>
-  <!-- <div>{{navbarIsActive}}</div> -->
   <mat-toolbar class="navbar" [class.active]="navbarIsActive">
     <mat-icon class="close" (click)="toggleNavbar()">close</mat-icon>
     <span routerLink = "/"> <img src="../../../assets/images/navbarlogo.svg" height=35 alt="logo"></span>

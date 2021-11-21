@@ -12,11 +12,13 @@ export class NavbarComponent implements OnInit {
   isLoggedIn:boolean;
   isLoggedOut:boolean;
   value = 'Clear me';
-  navbarIsActive:boolean =true;
+  navbarIsActive:boolean = false;
   constructor(private _authService: AuthService,private snackbar: MatSnackBar,private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn=this._authService.isLoggedIn();
+    console.log(this.isLoggedIn);
+    console.log('local',localStorage.getItem('e-comm-access-token'))
     this.isLoggedOut=this._authService.isLoggedOut();
   }
 

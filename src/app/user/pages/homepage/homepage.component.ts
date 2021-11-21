@@ -16,7 +16,7 @@ export class HomepageComponent implements OnInit {
   constructor(private _productService: ProductService,private snackbar:MatSnackBar,private cdr: ChangeDetectorRef,private router: Router) { }
 
   ngOnInit(): void {
-    this._productService.getCategories().subscribe(data => {
+    this._productService.getCategoriesProducts().subscribe(data => {
       this.categories= data.data.filter((category:any) => category.products.length>0);
       console.log("Categories", this.categories);
       this.cdr.detectChanges();

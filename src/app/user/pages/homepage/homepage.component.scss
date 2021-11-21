@@ -94,7 +94,6 @@ body {
       display: block;
       width: 200px;
       height: 200px;
-      margin: 0.75rem;
       border-radius: 2rem;
     }
   }
@@ -151,6 +150,12 @@ body {
     width: 90%;
     mat-card-actions {
       margin: 0 0.1rem;
+    }
+    .catSlideImage{
+      img{
+        width: 180px;
+        height: 180px;
+      }
     }
   }
   .stars {

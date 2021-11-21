@@ -9,6 +9,7 @@ import { CartComponent } from "./user/pages/cart/cart.component";
 import {HomepageComponent} from "./user/pages/homepage/homepage.component"
 import { PaymentComponent } from './user/pages/payment/payment.component';
 import { CheckoutComponent } from './user/pages/checkout/checkout.component';
+import { UserGuard } from './_guard/user.guard';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   {
     path:'wishlist',
     component:WishlistComponent,
+    canActivate:[UserGuard]
   },
   {
     path:'products',
@@ -33,7 +35,8 @@ const routes: Routes = [
   },
   {
     path:'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate:[UserGuard]
   },
   { 
     path: '',
@@ -46,11 +49,12 @@ const routes: Routes = [
   },
   {
     path:'pay',
-    component: PaymentComponent
+    component: PaymentComponent,
   },
   {
     path: 'checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate:[UserGuard]
   },
 ];
 

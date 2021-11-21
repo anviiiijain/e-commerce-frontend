@@ -10,6 +10,8 @@ import { _url } from '../_utils/url';
   providedIn: 'root',
 })
 export class AuthService {
+  redirectUrl: string | null = null;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<IResponse> {
@@ -36,7 +38,7 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    return localStorage.getItem('e-comm-access-token') !== undefined;
+    return localStorage.getItem('e-comm-access-token') !== null;
   }
 
   isLoggedOut() {

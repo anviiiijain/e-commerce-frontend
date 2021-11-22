@@ -1,67 +1,55 @@
-<div class="home">
+<ng-container *ngIf="showResults;then thenBlock;else elseBlock"></ng-container>
+<ng-template #thenBlock>
 
-  <div class="carousel" data-flickity='{ "autoPlay": 2000,"prevNextButtons": false,"pageDots": false}'>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\slide1.PNG" alt=" img not found">
+</ng-template>
+<ng-template  #elseBlock>
+  <div class="home">
+    <div class="carousel">
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\slide1.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
       </div>
-      <div class="bigSliderText"></div>
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\slider2.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
+      </div>
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\slider3.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
+      </div>
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\poco C31.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
+      </div>
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\techno spark 7t.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
+      </div>
+      <div class="carousel-cell">
+        <div class="bigSliderImage">
+          <img src="\assets\images\Redmi 9a.PNG" alt=" img not found">
+        </div>
+        <div class="bigSliderText"></div>
+      </div>
     </div>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\slider2.PNG" alt=" img not found">
+  
+    <div *ngFor="let category of categories">
+      <h2 class="category-heading">
+        {{category.categoryName}}<mat-icon>keyboard_arrow_right</mat-icon>
+      </h2>
+      <div class="catCarousel">
+          <app-productcard *ngFor="let product of category.products" class="card-div" [product]="product" cardType='card'></app-productcard>
       </div>
-      <div class="bigSliderText"></div>
-    </div>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\slider3.PNG" alt=" img not found">
-      </div>
-      <div class="bigSliderText"></div>
-    </div>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\poco C31.PNG" alt=" img not found">
-      </div>
-      <div class="bigSliderText"></div>
-    </div>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\techno spark 7t.PNG" alt=" img not found">
-      </div>
-      <div class="bigSliderText"></div>
-    </div>
-    <div class="carousel-cell">
-      <div class="bigSliderImage">
-        <img src="\assets\images\Redmi 9a.PNG" alt=" img not found">
-      </div>
-      <div class="bigSliderText"></div>
     </div>
   </div>
-
-  <div *ngFor="let category of categories">
-    <h2 class="category-heading">
-      {{category.categoryName}}<mat-icon>keyboard_arrow_right</mat-icon>
-    </h2>
-    <div class="catCarousel">
-        <mat-card *ngFor="let product of category.products" class="cat-card">
-          <mat-card-header>
-            <mat-card-title class="catCardTitleText">{{product.productName | slice:0:35}} </mat-card-title>
-          </mat-card-header>
-          <div class="catSlideImage">
-            <img [src]="product.productImages[0].productImageUrl | safe" [alt]="product.productName"/>
-          </div>
-          <div class="stars">
-              <stars [stars]="product.rating"></stars>
-          </div>
-          <mat-card-actions>
-              <div class="actions">
-                  <mat-icon (click)="addToCart(product.productId)">shopping_cart</mat-icon>
-                  <mat-icon (click)="addToWishlist(product.productId)">favorite_border</mat-icon>
-              </div>
-              <button mat-raised-button class="primary-button" (click)="gotoProduct(product.productId)">View More</button>
-          </mat-card-actions>
-        </mat-card>
-    </div>
-  </div>
-</div>
+</ng-template>

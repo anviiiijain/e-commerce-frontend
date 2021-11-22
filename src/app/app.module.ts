@@ -26,6 +26,9 @@ import { NgxStripeModule } from "ngx-stripe"
 import { PaymentComponent } from './user/pages/payment/payment.component';
 import { CheckoutComponent } from './user/pages/checkout/checkout.component';
 import { HomepageComponent } from './user/pages/homepage/homepage.component';
+import { ProductcardComponent } from './user/components/productcard/productcard.component';
+import { SearchresultComponent } from './user/pages/searchresult/searchresult.component';
+import { SearchbarComponent } from './user/components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { HomepageComponent } from './user/pages/homepage/homepage.component';
     HomepageComponent,
     SafePipe,
     PaymentComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductcardComponent,
+    SearchbarComponent,
+    SearchresultComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IProduct } from '../_models/Product';
 import { _url } from '../_utils/url';
 import { IResponse } from '../_models/Response';
+import { IProduct } from '../_models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  searchOption:IProduct[]=[]
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,11 @@ export class ProductService {
     return this.http.get<IResponse>(`${_url}/products`)
   }
 
-  getCategories():Observable<IResponse> {
+  getCategories(): Observable<IResponse> {
+    return this.http.get<IResponse>(`${_url}/categories`)
+  }
+
+  getCategoriesProducts():Observable<IResponse> {
     return this.http.get<IResponse>(`${_url}/user/category-products`)
   }
 

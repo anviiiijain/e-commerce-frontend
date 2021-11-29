@@ -77,5 +77,19 @@ export class ProductService {
         console.log(filteredPostsList);
         return filteredPostsList;
   }
+  addFAQs(productId: string, question:string): Observable<IResponse> {
+    return this.http.post<IResponse>(`${_url}/user/faqs/${productId}`,{
+      question
+    })
+  }
+
+  addReviews(productId: string, reviewContent: string, stars: number): Observable<IResponse> {
+    return this.http.post<IResponse>(`${_url}/user/reviews/${productId}`,{
+      reviewContent,
+      stars
+    })
+  }
+
+
 
 }

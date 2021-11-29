@@ -63,6 +63,77 @@
     }
 }
 
+.ask-faqs{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    padding-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: flex-end;
+}
+
+
+.faq-button {
+    background-color: black;
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    width: 20%;
+    align-self: flex-end;
+    margin-right: 1rem;
+    
+}
+
+.give-review{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    padding-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: flex-end;
+}
+
+.filled{
+    color: yellow;
+    
+}
+
+.rating{
+    margin-left: 0.5rem;
+}
+
+.review-button{
+    background-color: black;
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    width: 20%;
+    align-self: flex-end;
+    margin-right: 1rem;
+}
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+    
+  } 
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .warn {
+    color: black;
+ }
+
+ .accent {
+    color: green;
+ }
+
+
 .reviews{
     margin: 5rem 0;
     h2{

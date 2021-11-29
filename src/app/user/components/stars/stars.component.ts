@@ -8,6 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class StarsComponent implements OnInit {
   @Input() stars:any;
+  @Input() isInput: boolean;
   constructor() { }
 
   ngOnInit(): void {

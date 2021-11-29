@@ -35,7 +35,7 @@
                         <mat-icon>shopping_cart</mat-icon>
                     </span>
                     <mat-icon (click)="addToWishlist(productDetails.productId)">favorite_border</mat-icon>
-                    <button mat-raised-button class="primary-button" (click)="addToCart(productDetails.productId)" routerLink = "/cart">Buy Now</button>
+                    <button mat-raised-button class="primary-button" (click)="addToCart(productDetails.question)" routerLink = "/cart">Buy Now</button>
                 </div>
             </div>
             <mat-divider [inset]='true'></mat-divider>
@@ -45,6 +45,9 @@
             </div>
         </mat-card>
     </div>
+
+   
+
     <div class="faqs">
         <h2>Frequently Asked Questions</h2>
         <div *ngFor="let faq of productFAQs">
@@ -60,8 +63,43 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div *ngIf="productFAQs.length==0">No questions asked</div>
-    </div>
+        
+  
+    <div *ngIf="productFAQs.length==0">No questions asked</div>
+
+        <div class="ask-faqs">
+            <form class="example-form">
+                <mat-form-field  class="example-full-width warn" appearance="fill">
+                  <mat-label>Ask Question</mat-label>
+                  <input matInput #FAQ  [(ngModel)]="question" maxlength="256" placeholder="Ex. Is this product..." />
+                </mat-form-field>
+                <button class="faq-button" mat-button  (click)="addtoFAQs(productDetails.productId, FAQ.value)">Submit</button>
+              </form>
+        </div>
+        
+        
+    </div> 
+    <h2>Review Product</h2>
+    <div class="give-review">
+        <form class="example-form">
+            <div class="rating">
+                <div style="display: inline-block" #Review *ngFor="let starred of stars; let i = index" (click)="rate(i + (starred ? (value > i + 1 ? 1 : 0) : 1))">
+                    <ng-container *ngIf="starred; else noStar">
+                        <mat-icon class="filled">star</mat-icon>
+                    </ng-container>
+                    <ng-template #noStar>
+                        <mat-icon class="empty">star_outline</mat-icon>
+                    </ng-template>
+                </div>
+            </div>
+            <mat-form-field  class="example-full-width warn" appearance="fill">
+              <mat-label>Review Product</mat-label>
+              <input matInput #Review  [(ngModel)]="question" maxlength="256" placeholder="Ex. Is this product..." />
+            </mat-form-field>
+            <button class="review-button" mat-button (click)="addtoReviews(productDetails.productId, Review.value, rated)" >Submit</button>
+            
+          </form>
+        </div>
     <div class="reviews">
         <h2>Reviews</h2>
         <div *ngFor="let review of productReviews">

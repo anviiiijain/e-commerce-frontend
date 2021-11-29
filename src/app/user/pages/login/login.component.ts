@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services';
 
 @Component({
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
   email:string=""
   password:string=""
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService,private snackbar:MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,10 +24,16 @@ export class LoginComponent implements OnInit {
 
     if(this.email && this.password) {
       this._authService.login(this.email, this.password).subscribe(data => {
-        console.log("authservice component",data);
-        
+        // console.log("authservice component",data);
       }, error => {
-        console.log(error);
+        console.log(error.message);
+        let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
+          duration: 3000
+        })
+  
+        snackBarRef.onAction().subscribe(() => {
+          window.location.reload()
+        })
       })
     }
   }

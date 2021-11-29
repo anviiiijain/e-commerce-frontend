@@ -19,68 +19,26 @@ const WISHLIST_ICON = `
 })
 export class ProductDetailsComponent implements OnInit {
 
+  view:'card'|'tile';
   products:any = []
   
-  constructor(private _productService: ProductService,iconRegistry: MatIconRegistry,sanitizer: DomSanitizer, private snackbar: MatSnackBar, private router: Router) { 
+  constructor(private _productService: ProductService,iconRegistry: MatIconRegistry,sanitizer: DomSanitizer) { 
     iconRegistry.addSvgIconLiteral('wishlist-icon', sanitizer.bypassSecurityTrustHtml(WISHLIST_ICON));
   }
 
   ngOnInit(): void {
+    this.view='tile';
     this._productService.getProducts().subscribe(data => {
       this.products= data.data
-      console.log(this.products);
-      console.log(this.products[0].productImages[0].productImageUrl);
-
     }, error => {
       console.log(error);
     })
   }
-
-  addToCart(productId:string) {
-    this._productService.addProductToCart(productId).subscribe(data => {
-      // logic for animation based on code
-      let snackBarRef = this.snackbar.open("Added to Cart", 'Go to Cart', {
-        duration: 1500
-      })
-
-      snackBarRef.onAction().subscribe(() => {
-        this.router.navigate(['/cart']);
-      })
-      console.log(data);
-    },
-    error=>{
-      let snackBarRef = this.snackbar.open(error.error.message, 'Try Again', {
-        duration: 3000
-      });
-
-      snackBarRef.onAction().subscribe(() => {
-          window.location.reload();
-      })
+  toggleView(){
+    if(this.view=='tile'){
+      this.view='card';
+    }else{
+      this.view='tile';
     }
-    )
   }
-
-  addToWishlist(productId:string) {
-    this._productService.addProductToWishlist(productId).subscribe(data => {
-      // logic for animation based on code
-      console.log(data);
-      let snackBarRef = this.snackbar.open("Added to Wishlist", 'Go to Wishlist', {
-        duration: 3000
-      })
-
-      snackBarRef.onAction().subscribe(() => {
-        this.router.navigate(['/wishlist']);
-      })
-    })
-  }
-
-  gotoProduct(productId:string): void {
-    this.router.navigate(['/product', productId]);
-  }
-
-  // openSnackBar(message:string) {
-  //   this.snackbar.open(message, 'Dismiss', {
-  //     duration: 2000
-  //   })
-  // }
 }

@@ -14,4 +14,9 @@ export class CartService {
   getCart(): Observable<IResponse> {
     return this.http.get<IResponse>(`${_url}/user/cart`)
   }
+  decreaseQtyfromCart(productId:string): Observable<IResponse> {
+    return this.http.post<IResponse>(`${_url}/user/decreaseQtyfromCart`, {
+      productId
+    })
+  }
 }

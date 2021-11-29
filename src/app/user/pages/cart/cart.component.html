@@ -20,11 +20,11 @@
                         <span class="red-text">₹ {{cartItem.product.discountedPrice}}</span>
                     </div>
                     <mat-card class="quantity-controller">
-                        <mat-icon (click)="increaseQuant()">arrow_drop_up</mat-icon>
+                        <mat-icon (click)="increaseQuant(cartItem.product.productId,cartItem.qty)">arrow_drop_up</mat-icon>
                         <mat-divider [vertical]="true"></mat-divider>
-                        <span class="red-text">{{quant}}</span>
+                        <span class="red-text">{{cartItem.qty}}</span>
                         <mat-divider [vertical]="true"></mat-divider>
-                        <mat-icon (click)="decreaseQuant()">arrow_drop_down</mat-icon>
+                        <mat-icon (click)="decreaseQuant(cartItem.product.productId,cartItem.qty)">arrow_drop_down</mat-icon>
                     </mat-card>
                 </div>
                 <mat-divider [inset]="true"></mat-divider>

@@ -1,0 +1,50 @@
+<ng-container [ngSwitch]="cardType">
+  <mat-card *ngSwitchCase="'tile'" class="card-space">
+    <embed mat-card-xl-image [src]="product.productImages[0].productImageUrl | safe" alt="">
+    <div class="card-item">
+        <mat-card-title class="item-title" (click)="gotoProduct(product.productId)">
+            {{product.productName}}
+        </mat-card-title>
+        <mat-card-content class="item">
+            <p class="item-details">
+                <stars></stars>
+                <span class="todays-deal"> Today's Deal: <s>₹{{product.originalPrice}}</s></span><span
+                    style="color: #BD2F2F;">
+                    ₹{{product.discountedPrice}}</span>
+            </p>
+            <p class="mat-title description">{{product.description}}</p>
+
+        </mat-card-content>
+
+        <mat-card-actions align="end" class=" item-button">
+            <mat-icon (click)="addToWishlist(product.productId)" svgIcon="wishlist-icon"></mat-icon>
+            <button mat-button class="item-button-addtocart" (click)="addToCart(product.productId)">
+                <mat-icon>shopping_cart</mat-icon> Add to Cart
+            </button>
+        </mat-card-actions>
+    </div>
+</mat-card>
+
+<mat-card *ngSwitchCase="'card'" class="cat-card">
+  <mat-card-header>
+    <mat-card-title class="catCardTitleText" (click)="gotoProduct(product.productId)">
+        {{product.productName | slice:0:35}}
+    </mat-card-title>
+  </mat-card-header>
+  <div class="catSlideImage">
+    <img [src]="product.productImages[0].productImageUrl | safe" [alt]="product.productName"/>
+  </div>
+  <div class="stars">
+      <stars [stars]="product.rating"></stars>
+  </div>
+  <mat-card-actions>
+      <div class="actions">
+          <mat-icon (click)="addToCart(product.productId)">shopping_cart</mat-icon>
+          <mat-icon (click)="addToWishlist(product.productId)">favorite_border</mat-icon>
+      </div>
+      <button mat-raised-button class="primary-button" (click)="gotoProduct(product.productId)">
+          View More
+      </button>
+  </mat-card-actions>
+</mat-card>
+</ng-container>

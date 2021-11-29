@@ -5,6 +5,8 @@ export interface IProduct {
     "description": string,
     "originalPrice": number,
     "discountedPrice": number,
+    "productImages": any,
+    "rating":number,
     "createdAt": Date,
     "updatedAt": Date
 }

@@ -1,34 +1,16 @@
 <div class="products-page">
+    <div class="products-header">
+        <h1 class="mat-display-1 products-title">
+            Products
+        </h1>
+        <button mat-raised-button (click)="toggleView()">
+            <mat-icon *ngIf="view=='tile'">grid_view</mat-icon>
+            <mat-icon *ngIf="view=='card'">view_list</mat-icon>
+            <span>View</span>
+        </button>
+    </div>
 
-    <h1 class="mat-display-1 product-title">
-        Products
-    </h1>
-
-    <div *ngFor="let product of products">
-        <mat-card class="card-space">
-            <embed mat-card-xl-image [src]="product.productImages[0].productImageUrl | safe" alt="">
-            <div class="card-item">
-                <mat-card-title class="item-title" (click)="gotoProduct(product.productId)">
-                    {{product.productName}}
-                </mat-card-title>
-                <mat-card-content class="item">
-                    <p class="item-details">
-                        <stars></stars>
-                        <span class="todays-deal"> Today's Deal: <s>₹{{product.originalPrice}}</s></span><span
-                            style="color: #BD2F2F;">
-                            ₹{{product.discountedPrice}}</span>
-                    </p>
-                    <p class="mat-title description">{{product.description}}</p>
-
-                </mat-card-content>
-
-                <mat-card-actions align="end" class=" item-button">
-                    <mat-icon (click)="addToWishlist(product.productId)" svgIcon="wishlist-icon"></mat-icon>
-                    <button mat-button class="item-button-addtocart" (click)="addToCart(product.productId)">
-                        <mat-icon>shopping_cart</mat-icon> Add to Cart
-                    </button>
-                </mat-card-actions>
-            </div>
-        </mat-card>
+    <div [class.products-grid]="view=='card'">
+        <app-productcard *ngFor="let product of products" [product]="product" [cardType]="view"></app-productcard>
     </div>
 </div>

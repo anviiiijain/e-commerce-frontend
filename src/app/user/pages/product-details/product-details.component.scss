@@ -1,106 +1,52 @@
 .products-page{
   width: 80%;
   margin:5rem auto;
-  .product-title {
-    margin: 1rem 0.5rem;
-    font-weight: bolder;
-  }
-}
-
-.card-space {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 1rem;
-  margin: 2rem auto;
-  padding: 2rem 2rem 0 0;
-
-  .card-space embed {
-    width: 20%;
-    min-height: 200px;
-    max-height: 250px;
-  }
-  
-  .card-item {
+  .products-header{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 70%;
+    justify-content: space-between;
+    width: 100%;
 
-    .item-title {
+    .products-title {
+      margin: 1rem 0.5rem;
       font-weight: bolder;
     }
-    
-    .item {
-      p {
-        border-bottom: 1px solid #9b9b9b;
-        padding-bottom: 25px;
-        padding-top: 25px;
+    button{
+      display: flex;
+     justify-content: center;
+      height: fit-content;
+      mat-icon{
+        margin-right: 0.5rem;
       }
-      .item-details{
-        display: flex;
-        gap: 0.5rem;
+    }
+  }
+  .products-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
 
-        .todays-deal {
-          color: #9b9b9b;
-        }
-      }
+  }
+}
+@media screen and (max-width: 1536px){
+  .products-page{
+    .products-grid{
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
 
-.description {
-  text-align: justify;
-  text-justify: inter-word;
-  font-weight: normal;
-}
-
-.item-button{
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  .item-button-addtocart 
-  {
-    font-size: large;
-    background-color: #282626;
-    color: white;
-    border-radius: 2rem;
-    padding: 0.5rem 2rem;
-    margin: 0.5rem 0;
-  }
-  mat-icon{
-    margin-left: 1rem;
-  }
-}
-
-@media screen and (max-width:768px){
-  .card-space {
-    .card-item {
-      .item {
-        .item-details{
-          flex-direction: column;
-        }
-      }
+@media screen and (max-width: 768px){
+  .products-page{
+    .products-grid{
+      grid-template-columns: 1fr 1fr ;
     }
-  }  
+  }
 }
 
 @media screen and (max-width:640px){
   .products-page{
     width: 90%;
+    .products-grid{
+      grid-template-columns: 1fr;
+    }
   }
-  .card-space {
-    flex-direction: column;
-    padding: 0.75rem 0.75rem 0;
-    .card-item {
-      margin-top: 1rem;
-      width: 90%;
-    }
-  } 
-  .item-button{
-    .item-button-addtocart{
-      padding: 0.5rem 1rem;
-    }
-  } 
 }

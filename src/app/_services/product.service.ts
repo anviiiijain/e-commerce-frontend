@@ -10,6 +10,7 @@ import { IProduct } from '../_models';
 })
 export class ProductService {
   searchOption:IProduct[]=[]
+  resultOption:IProduct[]=[]
 
   constructor(private http: HttpClient) { }
 
@@ -62,6 +63,19 @@ export class ProductService {
     return this.http.delete(`${_url}/user/wishlist?productId=${productId}`)
   }
 
-
+  filteredListProducts() {
+    let posts = this.resultOption;
+    console.log(posts)
+        let filteredPostsList = [];
+        for (let post of posts) {
+            for (let options of this.searchOption) {
+                if (options.productName === post.productName) {
+                  filteredPostsList.push(post);
+                }
+            }
+        }
+        console.log(filteredPostsList);
+        return filteredPostsList;
+  }
 
 }
